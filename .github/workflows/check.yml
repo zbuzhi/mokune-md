@@ -10,6 +10,8 @@ concurrency:
   cancel-in-progress: true
 jobs:
   web-and-licenses:
+    env:
+      MOKUNE_BROWSER_PLATFORM: MacIntel
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:

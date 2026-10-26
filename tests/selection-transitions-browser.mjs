@@ -1,10 +1,11 @@
+import {createTestPage} from './browser-page.mjs';
 import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
 import {writeFile} from 'node:fs/promises';
 const require=createRequire(import.meta.url),{chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const browser=await chromium.launch({headless:true,...(process.env.CHROME_EXECUTABLE?{executablePath:process.env.CHROME_EXECUTABLE}:{})});
 try{
- const page=await browser.newPage({viewport:{width:1000,height:1100}}),errors=[],checks=[];page.on('pageerror',e=>errors.push(e.message));await page.addInitScript(()=>{window.webkit={messageHandlers:{mokune:{postMessage(){}}}};localStorage.setItem('mokune.settings',JSON.stringify({autoSave:false}));});await page.goto('http://127.0.0.1:4173/dist/web/');await page.waitForFunction(()=>window.mokune);
+ const page=await createTestPage(browser,{viewport:{width:1000,height:1100}}),errors=[],checks=[];page.on('pageerror',e=>errors.push(e.message));await page.addInitScript(()=>{window.webkit={messageHandlers:{mokune:{postMessage(){}}}};localStorage.setItem('mokune.settings',JSON.stringify({autoSave:false}));});await page.goto('http://127.0.0.1:4173/dist/web/');await page.waitForFunction(()=>window.mokune);
  const raw='\ufeff# 选区切换\r\n\r\n![前置图](assets/preview.svg){width=420px}\r\n\r\n第一段文字可以反复点击插入，也可以向下跨行拖选。\r\n\r\n从[链接标题](https://example.com/'+('long-target/'.repeat(18))+')开始拖选，光标经过这段尾部文字。\r\n\r\n下一段用于准确终止拖选，再继续插入文字。\r\n\r\n'+('长段落可以自动换行，选区需要稳定地跟随鼠标。'.repeat(10))+'收尾。\r\n';
  const load=()=>page.evaluate(raw=>window.mokune.receive({type:'load',raw,name:'选区切换.md',hasPath:true,imageBase:'/tests/fixtures/'}),raw),snap=()=>page.evaluate(()=>window.mokune.snapshot()),undo=()=>page.evaluate(()=>window.mokune.receive({type:'action',action:'undo'}));
  const point=(text,offset)=>page.locator('.cm-content').evaluate((el,{text,offset})=>{const w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){const at=n.textContent.indexOf(text);if(at<0)continue;const r=document.createRange();r.setStart(n,at+offset);r.setEnd(n,at+offset+1);const b=r.getBoundingClientRect();return {x:b.x+b.width*.2,y:b.y+b.height/2};}throw Error('Missing '+text);},{text,offset});

@@ -1,3 +1,4 @@
+import {createTestPage} from './browser-page.mjs';
 import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
 import {writeFile} from 'node:fs/promises';
@@ -5,7 +6,7 @@ const require=createRequire(import.meta.url),{chromium}=require(process.env.PLAY
 const browser=await chromium.launch({headless:true,...(process.env.CHROME_EXECUTABLE?{executablePath:process.env.CHROME_EXECUTABLE}:{})});
 const label=process.env.PERF_LABEL||'after';
 try{
- const page=await browser.newPage();await page.addInitScript(()=>{window.webkit={messageHandlers:{mokune:{postMessage:()=>{}}}};localStorage.setItem('mokune.settings',JSON.stringify({autoSave:false}));});await page.goto('http://127.0.0.1:4173/dist/web/');await page.waitForFunction(()=>window.mokune);
+ const page=await createTestPage(browser);await page.addInitScript(()=>{window.webkit={messageHandlers:{mokune:{postMessage:()=>{}}}};localStorage.setItem('mokune.settings',JSON.stringify({autoSave:false}));});await page.goto('http://127.0.0.1:4173/dist/web/');await page.waitForFunction(()=>window.mokune);
  const raw='# 样式复用\n\n```java\npublic class Main { String text = "hi"; }\n```';const load=()=>page.evaluate(raw=>window.mokune.receive({type:'load',raw,name:'样式.md',hasPath:false}),raw);
  const rules=()=>page.evaluate(()=>[...document.styleSheets].reduce((n,s)=>{try{return n+s.cssRules.length;}catch{return n;}},0));
  await load();await page.locator('.md-code .tok-keyword').first().waitFor();const initial=await rules();for(let i=0;i<100;i++)await load();const afterLoads=await rules();

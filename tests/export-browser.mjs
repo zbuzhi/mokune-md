@@ -1,3 +1,4 @@
+import {createTestPage} from './browser-page.mjs';
 import {pathToFileURL} from 'node:url';
 import {resolve} from 'node:path';
 import assert from 'node:assert/strict';
@@ -6,7 +7,7 @@ import {readFile,writeFile,mkdir} from 'node:fs/promises';
 const require=createRequire(import.meta.url),{chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const browser=await chromium.launch({headless:true,...(process.env.CHROME_EXECUTABLE?{executablePath:process.env.CHROME_EXECUTABLE}:{})});
 try {
- const page=await browser.newPage({viewport:{width:1280,height:1000}}),errors=[],checks=[];
+ const page=await createTestPage(browser,{viewport:{width:1280,height:1000}}),errors=[],checks=[];
  page.on('pageerror',error=>errors.push(error.message));
  await page.addInitScript(()=>{window.__messages=[];window.webkit={messageHandlers:{mokune:{postMessage:message=>{window.__messages.push(message);if(message.command==='exportImages'){if(window.__holdImages){window.__pendingImages=message;return;}setTimeout(()=>window.mokune.receive({type:'exportImages',id:message.id,images:message.images.map(image=>image.url.startsWith('data:')?image.url:window.__imageData)}),0);}}}}};});
  await page.goto('http://127.0.0.1:4173/dist/web/');await page.waitForFunction(()=>window.mokune);
@@ -18,7 +19,7 @@ try {
  const theme=async id=>{await page.locator('#appearance-toggle').click();await page.locator(`[data-theme="${id}"]`).click();await page.locator('#appearance-close').click();};
  await load(fixture);await theme('paper');await page.locator('[data-kind="mermaid"].preview-ready').first().waitFor();
  const before=await snapshot(),html=await start();assert.deepEqual(await snapshot(),before);checks.push('export leaves source, revision, selection, mode and history untouched');
- const output=await browser.newPage({viewport:{width:1200,height:1200}}),requests=[];output.on('request',request=>{if(!request.url().startsWith('data:'))requests.push(request.url());});
+ const output=await createTestPage(browser,{viewport:{width:1200,height:1200}}),requests=[];output.on('request',request=>{if(!request.url().startsWith('data:'))requests.push(request.url());});
  await output.setContent(html);await output.evaluate(()=>document.fonts.ready);await output.waitForFunction(()=>[...document.images].every(image=>image.complete&&image.naturalWidth));
  assert.equal(await output.locator('script').count(),0);assert.equal(await output.locator('table tbody tr').count(),3);assert.equal(await output.locator('.export-diagram svg').count(),2);assert.equal(await output.locator('.export-math .katex').count(),1);assert.equal(await output.locator('.export-inline-math .katex').count(),2);assert.equal(await output.locator('img').count(),1);assert.ok(await output.locator('pre .tok-keyword').count()>0);assert.deepEqual(requests,[]);checks.push('standalone HTML embeds rendered formulas, both diagrams, complete tables, images, fonts and code highlighting without scripts or network');
  assert.equal(await output.evaluate(()=>getComputedStyle(document.body).backgroundColor),'rgb(252, 252, 250)');

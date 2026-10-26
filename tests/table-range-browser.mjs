@@ -1,3 +1,4 @@
+import {createTestPage} from './browser-page.mjs';
 import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
 import {writeFile} from 'node:fs/promises';
@@ -6,7 +7,7 @@ const browser=await chromium.launch({headless:true,...(process.env.CHROME_EXECUT
 const raw='\ufeff# 区域编辑\r\n\r\n| A | B | C |\r\n| :--- | ---: | :---: |\n| **甲** | x\\|y | 保留一 |\r\n| 第二行 | `code` | 保留二 |\n| 第三行 | 末尾 | 保留三 |\r\n\r\n正文  \r';
 const checks=[],errors=[];
 try{
- const page=await browser.newPage({viewport:{width:1300,height:950}});page.on('pageerror',e=>errors.push(e.message));
+ const page=await createTestPage(browser,{viewport:{width:1300,height:950}});page.on('pageerror',e=>errors.push(e.message));
  await page.addInitScript(()=>{window.__messages=[];window.webkit={messageHandlers:{mokune:{postMessage:m=>{window.__messages.push(m);if(m.command==='copyTableText')setTimeout(()=>window.mokune.receive({type:'clipboardResult',id:m.id}),0);}}}};localStorage.setItem('mokune.settings',JSON.stringify({autoSave:false}));});
  await page.goto('http://127.0.0.1:4173/dist/web/');await page.waitForFunction(()=>window.mokune);
  const load=async(source=raw)=>{await page.evaluate(raw=>window.mokune.receive({type:'load',raw,name:'区域.md',hasPath:true}),source);await page.waitForTimeout(90);},snap=()=>page.evaluate(()=>window.mokune.snapshot()),action=action=>page.evaluate(action=>window.mokune.receive({type:'action',action}),action);

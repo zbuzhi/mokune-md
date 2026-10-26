@@ -1,3 +1,4 @@
+import {createTestPage} from './browser-page.mjs';
 import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
 import {writeFile,mkdir} from 'node:fs/promises';
@@ -6,7 +7,7 @@ const browser=await chromium.launch({headless:true,...(process.env.CHROME_EXECUT
 const checks=[],errors=[],types=['NOTE','TIP','IMPORTANT','WARNING','CAUTION'];
 const text='# 提示块\n\n'+types.map(type=>`> [!${type}]\n> **中文提示**与 \`code\`，可以直接编辑。\n> 第二行内容。`).join('\n\n')+'\n\n> [!CUSTOM]\n> 未知类型保留。\n\n普通段落。\n';
 try{
- const page=await browser.newPage({viewport:{width:1300,height:1300}});
+ const page=await createTestPage(browser,{viewport:{width:1300,height:1300}});
  page.on('pageerror',e=>errors.push(e.message));
  await page.addInitScript(()=>{window.__messages=[];window.webkit={messageHandlers:{mokune:{postMessage:m=>window.__messages.push(m)}}};localStorage.setItem('mokune.settings',JSON.stringify({autoSave:false}));});
  await page.goto('http://127.0.0.1:4173/dist/web/');await page.waitForFunction(()=>window.mokune);
@@ -28,7 +29,7 @@ try{
   await page.locator('#appearance-toggle').click();await page.locator(`[data-theme="${theme}"]`).click();await page.locator('#appearance-close').click();
   const live=await page.locator('.md-callout-label').evaluateAll(nodes=>nodes.map(n=>getComputedStyle(n).color));
   await page.evaluate(()=>window.__messages=[]);await action('exportHTML');await page.waitForFunction(()=>window.__messages.some(m=>m.command==='writeExport'));
-  const html=await page.evaluate(()=>window.__messages.find(m=>m.command==='writeExport').html),out=await browser.newPage();await out.setContent(html);
+  const html=await page.evaluate(()=>window.__messages.find(m=>m.command==='writeExport').html),out=await createTestPage(browser);await out.setContent(html);
   assert.equal(await out.locator('blockquote.md-callout').count(),5);assert.deepEqual(await out.locator('.callout-title').allTextContents(),types);assert.deepEqual(await out.locator('.callout-title').evaluateAll(nodes=>nodes.map(n=>getComputedStyle(n).color)),live);assert.equal(await out.locator('blockquote:not(.md-callout)').count(),1);assert.equal(await out.locator('script').count(),0);assert.equal((await snap()).raw,text);
   await writeFile(`output/html/mokune-callouts-${theme}.html`,html);await out.screenshot({path:`output/callouts-export-${theme}.png`,fullPage:true});await out.close();await page.evaluate(()=>window.mokune.receive({type:'exportFinished',cancelled:true}));checks.push(theme+': export body, title, colors and safety match live preview without source edits');
  }

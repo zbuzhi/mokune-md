@@ -1,7 +1,8 @@
+import {createTestPage} from './browser-page.mjs';
 import assert from 'node:assert/strict';import {createRequire} from 'node:module';import {writeFile} from 'node:fs/promises';
 const require=createRequire(import.meta.url),{chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');const browser=await chromium.launch({headless:true,...(process.env.CHROME_EXECUTABLE?{executablePath:process.env.CHROME_EXECUTABLE}:{})});
 try{
- const page=await browser.newPage({viewport:{width:1280,height:950}}),errors=[],checks=[];page.on('pageerror',e=>errors.push(e.message));
+ const page=await createTestPage(browser,{viewport:{width:1280,height:950}}),errors=[],checks=[];page.on('pageerror',e=>errors.push(e.message));
  await page.addInitScript(()=>{localStorage.setItem('mokune.settings',JSON.stringify({autoSave:false}));window.__messages=[];window.__docs={a:{tabID:'a',raw:'\ufeff# 文稿 A\r\n\r\n原文 A  \n',name:'A.md',documentKey:'/demo/A.md',hasPath:true},b:{tabID:'b',raw:'# 文稿 B\n\n原文 B\n',name:'B.md',documentKey:'/demo/B.md',hasPath:true}};window.webkit={messageHandlers:{mokune:{postMessage:m=>{window.__messages.push(m);if(m.command==='switchTab')setTimeout(()=>{window.mokune.receive({type:'load',...window.__docs[m.id]});window.mokune.receive({type:'tabs',active:m.id,items:Object.values(window.__docs).map(d=>({id:d.tabID,name:d.name,path:d.documentKey,dirty:false}))});},5);if(m.command==='closeTab')window.mokune.receive({type:'action',action:'closeCancelled'});}}}};});
  await page.goto('http://127.0.0.1:4173/dist/web/');await page.waitForFunction(()=>window.mokune);const action=action=>page.evaluate(action=>window.mokune.receive({type:'action',action}),action),snap=()=>page.evaluate(()=>window.mokune.snapshot());
  await page.evaluate(()=>{window.mokune.receive({type:'load',...window.__docs.a,replace:true});window.mokune.receive({type:'tabs',active:'a',items:[{id:'a',name:'A.md',dirty:false}]});});

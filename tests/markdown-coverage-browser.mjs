@@ -1,3 +1,4 @@
+import {createTestPage} from './browser-page.mjs';
 import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
 import {mkdir,writeFile} from 'node:fs/promises';
@@ -5,7 +6,7 @@ const require=createRequire(import.meta.url),{chromium}=require(process.env.PLAY
 const browser=await chromium.launch({headless:true,...(process.env.CHROME_EXECUTABLE?{executablePath:process.env.CHROME_EXECUTABLE}:{})});
 const checks=[],errors=[];
 try{
- const page=await browser.newPage({viewport:{width:1400,height:1200}});page.on('pageerror',e=>errors.push(e.message));
+ const page=await createTestPage(browser,{viewport:{width:1400,height:1200}});page.on('pageerror',e=>errors.push(e.message));
  await page.addInitScript(()=>{window.__messages=[];window.webkit={messageHandlers:{mokune:{postMessage:m=>window.__messages.push(m)}}};localStorage.setItem('mokune.settings',JSON.stringify({autoSave:false}));});
  await page.goto('http://127.0.0.1:4173/dist/web/');await page.waitForFunction(()=>window.mokune);
  const load=raw=>page.evaluate(raw=>window.mokune.receive({type:'load',raw,name:'Markdown 覆盖验收.md',hasPath:true}),raw),snapshot=()=>page.evaluate(()=>window.mokune.snapshot());
@@ -26,7 +27,7 @@ try{
  const docBefore=await snapshot();await page.evaluate(()=>{document.querySelector('.cm-content').dispatchEvent(new CompositionEvent('compositionstart',{bubbles:true,data:'nihao'}));});await page.evaluate(()=>window.mokune.receive({type:'action',action:'source'}));assert.equal((await snapshot()).sourceMode,docBefore.sourceMode);assert.equal((await snapshot()).raw,raw);await page.evaluate(()=>document.querySelector('.cm-content').dispatchEvent(new CompositionEvent('compositionend',{bubbles:true,data:'你好'})));await page.waitForTimeout(100);assert.equal((await snapshot()).composing,false);checks.push('Chinese composition freezes reconfiguration and retains BOM/mixed EOL/trailing spaces');
  await page.evaluate(()=>window.mokune.receive({type:'action',action:'source'}));await page.evaluate(()=>window.mokune.receive({type:'action',action:'source'}));assert.equal((await snapshot()).raw,raw);checks.push('source/live round trip is lossless');
  await load(fixture);await page.evaluate(()=>{window.__messages=[];window.mokune.receive({type:'action',action:'exportHTML'});});await page.waitForFunction(()=>window.__messages.some(m=>m.command==='writeExport'));
- const html=await page.evaluate(()=>window.__messages.find(m=>m.command==='writeExport').html),output=await browser.newPage();await output.setContent(html);assert.equal(await output.locator('.task-marker[aria-checked="true"]').count(),1);assert.equal(await output.locator('.task-marker[aria-checked="false"]').count(),1);assert.equal(await output.locator('strong code').first().textContent(),'inline');assert.ok(await output.locator('h2').count()>0);assert.equal(await output.locator('script').count(),0);checks.push('export shares nested formatting, tasks, headings and inert HTML');await writeFile('output/html/mokune-markdown-coverage.html',html);
+ const html=await page.evaluate(()=>window.__messages.find(m=>m.command==='writeExport').html),output=await createTestPage(browser);await output.setContent(html);assert.equal(await output.locator('.task-marker[aria-checked="true"]').count(),1);assert.equal(await output.locator('.task-marker[aria-checked="false"]').count(),1);assert.equal(await output.locator('strong code').first().textContent(),'inline');assert.ok(await output.locator('h2').count()>0);assert.equal(await output.locator('script').count(),0);checks.push('export shares nested formatting, tasks, headings and inert HTML');await writeFile('output/html/mokune-markdown-coverage.html',html);
  await page.evaluate(()=>window.mokune.receive({type:'exportFinished',cancelled:true}));await load('# 高亮验收\n\n**加粗 `inline`** 和 ``多重 ` 标记``\n\n- 无序列表\n  - 子项\n\n```java\npublic class Main {\n  String text = "hello"; // comment\n}\n```\n\n```python\ndef greet():\n    return 42\n```');await page.waitForTimeout(250);await mkdir('output',{recursive:true});await page.screenshot({path:'output/markdown-coverage.png'});
  assert.deepEqual(errors,[]);await writeFile('output/markdown-coverage-browser.json',JSON.stringify({checks,errors},null,2));console.log(`Markdown coverage browser checks passed: ${checks.length}`);
 }finally{await browser.close();}

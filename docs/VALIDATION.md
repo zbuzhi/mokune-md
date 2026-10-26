@@ -31,3 +31,5 @@ node scripts/verify-update-feed.mjs
 原生测试需要 macOS 图形会话。签名更新运行测试 `python3 scripts/test-update-runtime.py` 还需要维护者明确授权并配置的本机钥匙串更新密钥，不导出私钥；fork 应使用自己的 feed、公钥和密钥账户。
 
 GitHub 托管 CI 的实际结果以 [Actions](https://github.com/zbuzhi/mokune-md/actions) 为准。本地通过不能替代远程结果、正式公证发行版升级验收或完整法律核验。
+
+Linux CI 的浏览器测试显式使用 MacIntel 平台标识来检查本应用的 ⌘ 键位，避免把 Linux 默认键位当成 macOS。该设置仅影响测试页面的键盘绑定检测，不模拟 macOS 排版、系统输入法或原生行为；这些继续由真实 Mac/WebKit 测试覆盖。
