@@ -1,0 +1,24 @@
+name: 问题报告
+description: 使用最小自编 Markdown 复现普通问题；安全问题参见 SECURITY.md
+body:
+  - type: markdown
+    attributes:
+      value: 请勿上传私人文稿、恢复目录、凭证或含隐私的截图。安全漏洞请先使用已验证的私密报告渠道。
+  - type: input
+    id: environment
+    attributes:
+      label: 版本、macOS 与架构
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 最小复现文本与操作
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期与实际结果
+    validations:
+      required: true

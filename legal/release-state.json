@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "project": "Mokune MD",
+  "repository": "zbuzhi/mokune-md",
+  "copyrightHolder": "Mokune MD contributors (collective attribution)",
+  "rightsConfirmed": false,
+  "brandReviewComplete": false,
+  "privateSecurityContact": "https://github.com/zbuzhi/mokune-md/security/advisories/new",
+  "longTermBundleIdentityConfirmed": false,
+  "reviewedSourceManifestSHA256": null,
+  "note": "The user explicitly authorized MIT source publication on GitHub and separately authorized creating the update key in the macOS Keychain. Only a source preview is authorized; the stricter formal release review remains incomplete. Collective copyright attribution does not prove all individual/third-party rights. No private signing key is stored in source.",
+  "privateSecurityContactVerified": true,
+  "sourcePreviewPublicationAuthorized": true,
+  "binaryPublicationAuthorized": false,
+  "updateKeyCreationAuthorized": true
+}

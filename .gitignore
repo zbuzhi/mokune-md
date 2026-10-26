@@ -1,0 +1,51 @@
+node_modules/
+dist/
+.build/
+.DS_Store
+*.log
+test-results/
+/output/
+.env
+.env.*
+!.env.example
+*.p12
+*.p8
+*.mobileprovision
+*.private-key
+
+# Local design history/screenshots are excluded; curated public images live in docs/screenshots.
+/design/
+/docs/design/
+/tests/fixtures/*.pdf
+/.release/
+*.keychain
+*.keychain-db
+# Local custom-theme exports; shipped themes are in src/web/themes.json.
+/themes/
+
+# Local research/history and generated validation reports, excluded from public source.
+/docs/*.json
+/docs/BRANDING.md
+/docs/BUNDLE-SIZE.md
+/docs/EDITING-FLUIDITY.md
+/docs/EDITOR-POLISH.md
+/docs/IME-VALIDATION.md
+/docs/ITERATION-PLAN-017.md
+/docs/ITERATIONS-10.md
+/docs/MAC-INTERACTION-0132.md
+/docs/MAC-INTERACTION-0133.md
+/docs/MAC-INTERACTION-0134.md
+/docs/NAMING.md
+/docs/PERFORMANCE-0173.md
+/docs/PERFORMANCE.md
+/docs/PLAN.md
+/docs/RELEASE-PREPARATION-0174.md
+/docs/ROADMAP.md
+/scripts/render-design.mjs
+/scripts/summarize-performance.mjs
+/assets/icons/liquid-glass/md-layer-draft.png
+/assets/icons/liquid-glass/md-mark.svg
+
+# Superseded development screenshots remain local.
+/docs/screenshots/table-selection.png
+/docs/screenshots/code-highlighting.png

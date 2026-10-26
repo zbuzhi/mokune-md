@@ -1,0 +1,4249 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "type": "application",
+      "bom-ref": "application:mokune-md",
+      "name": "mokune-md",
+      "version": "0.1.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "@braintree/sanitize-url@7.1.2",
+      "name": "@braintree/sanitize-url",
+      "version": "7.1.2",
+      "purl": "pkg:npm/%40braintree/sanitize-url@7.1.2",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@chevrotain/cst-dts-gen@13.2.0",
+      "name": "@chevrotain/cst-dts-gen",
+      "version": "13.2.0",
+      "purl": "pkg:npm/%40chevrotain/cst-dts-gen@13.2.0",
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@chevrotain/gast@13.2.0",
+      "name": "@chevrotain/gast",
+      "version": "13.2.0",
+      "purl": "pkg:npm/%40chevrotain/gast@13.2.0",
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@chevrotain/regexp-to-ast@13.2.0",
+      "name": "@chevrotain/regexp-to-ast",
+      "version": "13.2.0",
+      "purl": "pkg:npm/%40chevrotain/regexp-to-ast@13.2.0",
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@chevrotain/utils@13.2.0",
+      "name": "@chevrotain/utils",
+      "version": "13.2.0",
+      "purl": "pkg:npm/%40chevrotain/utils@13.2.0",
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/autocomplete@6.20.4",
+      "name": "@codemirror/autocomplete",
+      "version": "6.20.4",
+      "purl": "pkg:npm/%40codemirror/autocomplete@6.20.4",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/commands@6.11.1",
+      "name": "@codemirror/commands",
+      "version": "6.11.1",
+      "purl": "pkg:npm/%40codemirror/commands@6.11.1",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/lang-angular@0.1.4",
+      "name": "@codemirror/lang-angular",
+      "version": "0.1.4",
+      "purl": "pkg:npm/%40codemirror/lang-angular@0.1.4",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/lang-cpp@6.0.3",
+      "name": "@codemirror/lang-cpp",
+      "version": "6.0.3",
+      "purl": "pkg:npm/%40codemirror/lang-cpp@6.0.3",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/lang-css@6.3.1",
+      "name": "@codemirror/lang-css",
+      "version": "6.3.1",
+      "purl": "pkg:npm/%40codemirror/lang-css@6.3.1",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/lang-go@6.0.1",
+      "name": "@codemirror/lang-go",
+      "version": "6.0.1",
+      "purl": "pkg:npm/%40codemirror/lang-go@6.0.1",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/lang-html@6.4.12",
+      "name": "@codemirror/lang-html",
+      "version": "6.4.12",
+      "purl": "pkg:npm/%40codemirror/lang-html@6.4.12",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/lang-java@6.0.2",
+      "name": "@codemirror/lang-java",
+      "version": "6.0.2",
+      "purl": "pkg:npm/%40codemirror/lang-java@6.0.2",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/lang-javascript@6.2.5",
+      "name": "@codemirror/lang-javascript",
+      "version": "6.2.5",
+      "purl": "pkg:npm/%40codemirror/lang-javascript@6.2.5",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/lang-jinja@6.0.1",
+      "name": "@codemirror/lang-jinja",
+      "version": "6.0.1",
+      "purl": "pkg:npm/%40codemirror/lang-jinja@6.0.1",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/lang-json@6.0.2",
+      "name": "@codemirror/lang-json",
+      "version": "6.0.2",
+      "purl": "pkg:npm/%40codemirror/lang-json@6.0.2",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/lang-less@6.0.2",
+      "name": "@codemirror/lang-less",
+      "version": "6.0.2",
+      "purl": "pkg:npm/%40codemirror/lang-less@6.0.2",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/lang-liquid@6.3.3",
+      "name": "@codemirror/lang-liquid",
+      "version": "6.3.3",
+      "purl": "pkg:npm/%40codemirror/lang-liquid@6.3.3",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/lang-markdown@6.5.2",
+      "name": "@codemirror/lang-markdown",
+      "version": "6.5.2",
+      "purl": "pkg:npm/%40codemirror/lang-markdown@6.5.2",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/lang-php@6.0.2",
+      "name": "@codemirror/lang-php",
+      "version": "6.0.2",
+      "purl": "pkg:npm/%40codemirror/lang-php@6.0.2",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/lang-python@6.2.1",
+      "name": "@codemirror/lang-python",
+      "version": "6.2.1",
+      "purl": "pkg:npm/%40codemirror/lang-python@6.2.1",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/lang-rust@6.0.2",
+      "name": "@codemirror/lang-rust",
+      "version": "6.0.2",
+      "purl": "pkg:npm/%40codemirror/lang-rust@6.0.2",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/lang-sass@6.0.2",
+      "name": "@codemirror/lang-sass",
+      "version": "6.0.2",
+      "purl": "pkg:npm/%40codemirror/lang-sass@6.0.2",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/lang-sql@6.10.0",
+      "name": "@codemirror/lang-sql",
+      "version": "6.10.0",
+      "purl": "pkg:npm/%40codemirror/lang-sql@6.10.0",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/lang-vue@0.1.3",
+      "name": "@codemirror/lang-vue",
+      "version": "0.1.3",
+      "purl": "pkg:npm/%40codemirror/lang-vue@0.1.3",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/lang-wast@6.0.2",
+      "name": "@codemirror/lang-wast",
+      "version": "6.0.2",
+      "purl": "pkg:npm/%40codemirror/lang-wast@6.0.2",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/lang-xml@6.1.0",
+      "name": "@codemirror/lang-xml",
+      "version": "6.1.0",
+      "purl": "pkg:npm/%40codemirror/lang-xml@6.1.0",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/lang-yaml@6.1.3",
+      "name": "@codemirror/lang-yaml",
+      "version": "6.1.3",
+      "purl": "pkg:npm/%40codemirror/lang-yaml@6.1.3",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/language-data@6.5.2",
+      "name": "@codemirror/language-data",
+      "version": "6.5.2",
+      "purl": "pkg:npm/%40codemirror/language-data@6.5.2",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/language@6.13.1",
+      "name": "@codemirror/language",
+      "version": "6.13.1",
+      "purl": "pkg:npm/%40codemirror/language@6.13.1",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/legacy-modes@6.5.5",
+      "name": "@codemirror/legacy-modes",
+      "version": "6.5.5",
+      "purl": "pkg:npm/%40codemirror/legacy-modes@6.5.5",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/search@6.7.2",
+      "name": "@codemirror/search",
+      "version": "6.7.2",
+      "purl": "pkg:npm/%40codemirror/search@6.7.2",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/state@6.7.6",
+      "name": "@codemirror/state",
+      "version": "6.7.6",
+      "purl": "pkg:npm/%40codemirror/state@6.7.6",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/streamparser@6.0.0",
+      "name": "@codemirror/streamparser",
+      "version": "6.0.0",
+      "purl": "pkg:npm/%40codemirror/streamparser@6.0.0",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@codemirror/view@6.43.15",
+      "name": "@codemirror/view",
+      "version": "6.43.15",
+      "purl": "pkg:npm/%40codemirror/view@6.43.15",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@iconify/utils@3.1.7",
+      "name": "@iconify/utils",
+      "version": "3.1.7",
+      "purl": "pkg:npm/%40iconify/utils@3.1.7",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@lezer/common@1.5.4",
+      "name": "@lezer/common",
+      "version": "1.5.4",
+      "purl": "pkg:npm/%40lezer/common@1.5.4",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@lezer/cpp@1.1.6",
+      "name": "@lezer/cpp",
+      "version": "1.1.6",
+      "purl": "pkg:npm/%40lezer/cpp@1.1.6",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@lezer/css@1.3.9",
+      "name": "@lezer/css",
+      "version": "1.3.9",
+      "purl": "pkg:npm/%40lezer/css@1.3.9",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@lezer/go@1.0.1",
+      "name": "@lezer/go",
+      "version": "1.0.1",
+      "purl": "pkg:npm/%40lezer/go@1.0.1",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@lezer/highlight@1.2.5",
+      "name": "@lezer/highlight",
+      "version": "1.2.5",
+      "purl": "pkg:npm/%40lezer/highlight@1.2.5",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@lezer/html@1.3.13",
+      "name": "@lezer/html",
+      "version": "1.3.13",
+      "purl": "pkg:npm/%40lezer/html@1.3.13",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@lezer/java@1.1.5",
+      "name": "@lezer/java",
+      "version": "1.1.5",
+      "purl": "pkg:npm/%40lezer/java@1.1.5",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@lezer/javascript@1.5.6",
+      "name": "@lezer/javascript",
+      "version": "1.5.6",
+      "purl": "pkg:npm/%40lezer/javascript@1.5.6",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@lezer/json@1.0.3",
+      "name": "@lezer/json",
+      "version": "1.0.3",
+      "purl": "pkg:npm/%40lezer/json@1.0.3",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@lezer/lr@1.4.11",
+      "name": "@lezer/lr",
+      "version": "1.4.11",
+      "purl": "pkg:npm/%40lezer/lr@1.4.11",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@lezer/markdown@1.8.1",
+      "name": "@lezer/markdown",
+      "version": "1.8.1",
+      "purl": "pkg:npm/%40lezer/markdown@1.8.1",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@lezer/php@1.0.6",
+      "name": "@lezer/php",
+      "version": "1.0.6",
+      "purl": "pkg:npm/%40lezer/php@1.0.6",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@lezer/python@1.1.19",
+      "name": "@lezer/python",
+      "version": "1.1.19",
+      "purl": "pkg:npm/%40lezer/python@1.1.19",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@lezer/rust@1.0.3",
+      "name": "@lezer/rust",
+      "version": "1.0.3",
+      "purl": "pkg:npm/%40lezer/rust@1.0.3",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@lezer/sass@1.1.0",
+      "name": "@lezer/sass",
+      "version": "1.1.0",
+      "purl": "pkg:npm/%40lezer/sass@1.1.0",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@lezer/xml@1.0.6",
+      "name": "@lezer/xml",
+      "version": "1.0.6",
+      "purl": "pkg:npm/%40lezer/xml@1.0.6",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@lezer/yaml@1.0.4",
+      "name": "@lezer/yaml",
+      "version": "1.0.4",
+      "purl": "pkg:npm/%40lezer/yaml@1.0.4",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@marijn/find-cluster-break@1.0.4",
+      "name": "@marijn/find-cluster-break",
+      "version": "1.0.4",
+      "purl": "pkg:npm/%40marijn/find-cluster-break@1.0.4",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@mermaid-js/parser@2.0.1",
+      "name": "@mermaid-js/parser",
+      "version": "2.0.1",
+      "purl": "pkg:npm/%40mermaid-js/parser@2.0.1",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "@upsetjs/venn.js@2.0.0",
+      "name": "@upsetjs/venn.js",
+      "version": "2.0.0",
+      "purl": "pkg:npm/%40upsetjs/venn.js@2.0.0",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "chevrotain@13.2.0",
+      "name": "chevrotain",
+      "version": "13.2.0",
+      "purl": "pkg:npm/chevrotain@13.2.0",
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "cose-base@1.0.3",
+      "name": "cose-base",
+      "version": "1.0.3",
+      "purl": "pkg:npm/cose-base@1.0.3",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "cose-base@2.2.0",
+      "name": "cose-base",
+      "version": "2.2.0",
+      "purl": "pkg:npm/cose-base@2.2.0",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "crelt@1.0.7",
+      "name": "crelt",
+      "version": "1.0.7",
+      "purl": "pkg:npm/crelt@1.0.7",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "cytoscape-cose-bilkent@4.1.0",
+      "name": "cytoscape-cose-bilkent",
+      "version": "4.1.0",
+      "purl": "pkg:npm/cytoscape-cose-bilkent@4.1.0",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "cytoscape-fcose@2.2.0",
+      "name": "cytoscape-fcose",
+      "version": "2.2.0",
+      "purl": "pkg:npm/cytoscape-fcose@2.2.0",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "cytoscape@3.34.4",
+      "name": "cytoscape",
+      "version": "3.34.4",
+      "purl": "pkg:npm/cytoscape@3.34.4",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-array@2.12.1",
+      "name": "d3-array",
+      "version": "2.12.1",
+      "purl": "pkg:npm/d3-array@2.12.1",
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "BSD-3-Clause"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-array@3.2.4",
+      "name": "d3-array",
+      "version": "3.2.4",
+      "purl": "pkg:npm/d3-array@3.2.4",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-axis@3.0.0",
+      "name": "d3-axis",
+      "version": "3.0.0",
+      "purl": "pkg:npm/d3-axis@3.0.0",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-brush@3.0.0",
+      "name": "d3-brush",
+      "version": "3.0.0",
+      "purl": "pkg:npm/d3-brush@3.0.0",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-chord@3.0.1",
+      "name": "d3-chord",
+      "version": "3.0.1",
+      "purl": "pkg:npm/d3-chord@3.0.1",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-color@3.1.0",
+      "name": "d3-color",
+      "version": "3.1.0",
+      "purl": "pkg:npm/d3-color@3.1.0",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-contour@4.0.2",
+      "name": "d3-contour",
+      "version": "4.0.2",
+      "purl": "pkg:npm/d3-contour@4.0.2",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-delaunay@6.0.4",
+      "name": "d3-delaunay",
+      "version": "6.0.4",
+      "purl": "pkg:npm/d3-delaunay@6.0.4",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-dispatch@3.0.1",
+      "name": "d3-dispatch",
+      "version": "3.0.1",
+      "purl": "pkg:npm/d3-dispatch@3.0.1",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-drag@3.0.0",
+      "name": "d3-drag",
+      "version": "3.0.0",
+      "purl": "pkg:npm/d3-drag@3.0.0",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-dsv@3.0.1",
+      "name": "d3-dsv",
+      "version": "3.0.1",
+      "purl": "pkg:npm/d3-dsv@3.0.1",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-ease@3.0.1",
+      "name": "d3-ease",
+      "version": "3.0.1",
+      "purl": "pkg:npm/d3-ease@3.0.1",
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "BSD-3-Clause"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-fetch@3.0.1",
+      "name": "d3-fetch",
+      "version": "3.0.1",
+      "purl": "pkg:npm/d3-fetch@3.0.1",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-force@3.0.0",
+      "name": "d3-force",
+      "version": "3.0.0",
+      "purl": "pkg:npm/d3-force@3.0.0",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-format@3.1.2",
+      "name": "d3-format",
+      "version": "3.1.2",
+      "purl": "pkg:npm/d3-format@3.1.2",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-geo@3.1.1",
+      "name": "d3-geo",
+      "version": "3.1.1",
+      "purl": "pkg:npm/d3-geo@3.1.1",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-hierarchy@3.1.2",
+      "name": "d3-hierarchy",
+      "version": "3.1.2",
+      "purl": "pkg:npm/d3-hierarchy@3.1.2",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-interpolate@3.0.1",
+      "name": "d3-interpolate",
+      "version": "3.0.1",
+      "purl": "pkg:npm/d3-interpolate@3.0.1",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-path@1.0.9",
+      "name": "d3-path",
+      "version": "1.0.9",
+      "purl": "pkg:npm/d3-path@1.0.9",
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "BSD-3-Clause"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-path@3.1.0",
+      "name": "d3-path",
+      "version": "3.1.0",
+      "purl": "pkg:npm/d3-path@3.1.0",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-polygon@3.0.1",
+      "name": "d3-polygon",
+      "version": "3.0.1",
+      "purl": "pkg:npm/d3-polygon@3.0.1",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-quadtree@3.0.1",
+      "name": "d3-quadtree",
+      "version": "3.0.1",
+      "purl": "pkg:npm/d3-quadtree@3.0.1",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-random@3.0.1",
+      "name": "d3-random",
+      "version": "3.0.1",
+      "purl": "pkg:npm/d3-random@3.0.1",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-sankey@0.12.3",
+      "name": "d3-sankey",
+      "version": "0.12.3",
+      "purl": "pkg:npm/d3-sankey@0.12.3",
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "BSD-3-Clause"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-scale-chromatic@3.1.0",
+      "name": "d3-scale-chromatic",
+      "version": "3.1.0",
+      "purl": "pkg:npm/d3-scale-chromatic@3.1.0",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-scale@4.0.2",
+      "name": "d3-scale",
+      "version": "4.0.2",
+      "purl": "pkg:npm/d3-scale@4.0.2",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-selection@3.0.0",
+      "name": "d3-selection",
+      "version": "3.0.0",
+      "purl": "pkg:npm/d3-selection@3.0.0",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-shape@1.3.7",
+      "name": "d3-shape",
+      "version": "1.3.7",
+      "purl": "pkg:npm/d3-shape@1.3.7",
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "BSD-3-Clause"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-shape@3.2.0",
+      "name": "d3-shape",
+      "version": "3.2.0",
+      "purl": "pkg:npm/d3-shape@3.2.0",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-time-format@4.1.0",
+      "name": "d3-time-format",
+      "version": "4.1.0",
+      "purl": "pkg:npm/d3-time-format@4.1.0",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-time@3.1.0",
+      "name": "d3-time",
+      "version": "3.1.0",
+      "purl": "pkg:npm/d3-time@3.1.0",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-timer@3.0.1",
+      "name": "d3-timer",
+      "version": "3.0.1",
+      "purl": "pkg:npm/d3-timer@3.0.1",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-transition@3.0.1",
+      "name": "d3-transition",
+      "version": "3.0.1",
+      "purl": "pkg:npm/d3-transition@3.0.1",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3-zoom@3.0.0",
+      "name": "d3-zoom",
+      "version": "3.0.0",
+      "purl": "pkg:npm/d3-zoom@3.0.0",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "d3@7.9.0",
+      "name": "d3",
+      "version": "7.9.0",
+      "purl": "pkg:npm/d3@7.9.0",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "dagre-d3-es@7.0.14",
+      "name": "dagre-d3-es",
+      "version": "7.0.14",
+      "purl": "pkg:npm/dagre-d3-es@7.0.14",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "dayjs@1.11.23",
+      "name": "dayjs",
+      "version": "1.11.23",
+      "purl": "pkg:npm/dayjs@1.11.23",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "delaunator@5.1.0",
+      "name": "delaunator",
+      "version": "5.1.0",
+      "purl": "pkg:npm/delaunator@5.1.0",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "dompurify@3.4.17",
+      "name": "dompurify",
+      "version": "3.4.17",
+      "purl": "pkg:npm/dompurify@3.4.17",
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "(MPL-2.0 OR Apache-2.0)"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "elkjs@0.9.3",
+      "name": "elkjs",
+      "version": "0.9.3",
+      "purl": "pkg:npm/elkjs@0.9.3",
+      "licenses": [
+        {
+          "expression": "EPL-2.0"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "EPL-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "entities@8.1.0",
+      "name": "entities",
+      "version": "8.1.0",
+      "purl": "pkg:npm/entities@8.1.0",
+      "licenses": [
+        {
+          "expression": "BSD-2-Clause"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "BSD-2-Clause"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "es-toolkit@1.52.0",
+      "name": "es-toolkit",
+      "version": "1.52.0",
+      "purl": "pkg:npm/es-toolkit@1.52.0",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "internmap@1.0.1",
+      "name": "internmap",
+      "version": "1.0.1",
+      "purl": "pkg:npm/internmap@1.0.1",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "internmap@2.0.3",
+      "name": "internmap",
+      "version": "2.0.3",
+      "purl": "pkg:npm/internmap@2.0.3",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "katex@0.19.0",
+      "name": "katex",
+      "version": "0.19.0",
+      "purl": "pkg:npm/katex@0.19.0",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "math-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "khroma@2.1.0",
+      "name": "khroma",
+      "version": "2.1.0",
+      "purl": "pkg:npm/khroma@2.1.0",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "layout-base@1.0.2",
+      "name": "layout-base",
+      "version": "1.0.2",
+      "purl": "pkg:npm/layout-base@1.0.2",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "layout-base@2.0.1",
+      "name": "layout-base",
+      "version": "2.0.1",
+      "purl": "pkg:npm/layout-base@2.0.1",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "linkify-it@6.1.0",
+      "name": "linkify-it",
+      "version": "6.1.0",
+      "purl": "pkg:npm/linkify-it@6.1.0",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "lodash-es@4.18.1",
+      "name": "lodash-es",
+      "version": "4.18.1",
+      "purl": "pkg:npm/lodash-es@4.18.1",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "markdown-it-footnote@4.0.0",
+      "name": "markdown-it-footnote",
+      "version": "4.0.0",
+      "purl": "pkg:npm/markdown-it-footnote@4.0.0",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "markdown-it@15.0.3",
+      "name": "markdown-it",
+      "version": "15.0.3",
+      "purl": "pkg:npm/markdown-it@15.0.3",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "marked@16.4.2",
+      "name": "marked",
+      "version": "16.4.2",
+      "purl": "pkg:npm/marked@16.4.2",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "mdurl@2.1.0",
+      "name": "mdurl",
+      "version": "2.1.0",
+      "purl": "pkg:npm/mdurl@2.1.0",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "mermaid@12.2.0",
+      "name": "mermaid",
+      "version": "12.2.0",
+      "purl": "pkg:npm/mermaid@12.2.0",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "punycode.js@2.3.1",
+      "name": "punycode.js",
+      "version": "2.3.1",
+      "purl": "pkg:npm/punycode.js@2.3.1",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "robust-predicates@3.0.3",
+      "name": "robust-predicates",
+      "version": "3.0.3",
+      "purl": "pkg:npm/robust-predicates@3.0.3",
+      "licenses": [
+        {
+          "expression": "Unlicense"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "Unlicense"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "roughjs@4.6.6",
+      "name": "roughjs",
+      "version": "4.6.6",
+      "purl": "pkg:npm/roughjs@4.6.6",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "style-mod@4.1.4",
+      "name": "style-mod",
+      "version": "4.1.4",
+      "purl": "pkg:npm/style-mod@4.1.4",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "stylis@4.4.0",
+      "name": "stylis",
+      "version": "4.4.0",
+      "purl": "pkg:npm/stylis@4.4.0",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "ts-dedent@2.3.0",
+      "name": "ts-dedent",
+      "version": "2.3.0",
+      "purl": "pkg:npm/ts-dedent@2.3.0",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "uc.micro@3.0.0",
+      "name": "uc.micro",
+      "version": "3.0.0",
+      "purl": "pkg:npm/uc.micro@3.0.0",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "uuid@14.0.3",
+      "name": "uuid",
+      "version": "14.0.3",
+      "purl": "pkg:npm/uuid@14.0.3",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "mermaid-engine"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "w3c-keyname@2.2.8",
+      "name": "w3c-keyname",
+      "version": "2.2.8",
+      "purl": "pkg:npm/w3c-keyname@2.2.8",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "yaml@2.9.1",
+      "name": "yaml",
+      "version": "2.9.1",
+      "purl": "pkg:npm/yaml@2.9.1",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:bundles",
+          "value": "editor"
+        },
+        {
+          "name": "mokune:declared-license",
+          "value": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "theme:ursine",
+      "name": "ursine theme foundation",
+      "version": "de3c1d696e4353f6549ab3dfc7718d1cd8c92e0c",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "98a3f849e0191aa9d0eb26ba64d6e5bc20953eb71cd349df298d1001a67be83b"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/noatpad/typora-theme-ursine/tree/de3c1d696e4353f6549ab3dfc7718d1cd8c92e0c"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "theme:dracula",
+      "name": "dracula theme foundation",
+      "version": "61a9edea74b2c25de27b0a720194c7ebdd147b0c",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5b9b81dd8a2d738be1d55115b89541e9f3ad0494fb0e91ba382e7cf81b4191a1"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/dracula/typora/tree/61a9edea74b2c25de27b0a720194c7ebdd147b0c"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "theme:drake",
+      "name": "drake theme foundation",
+      "version": "771df28080610cf6b0bd5f6f0c1864efa2d9a41e",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e898849bad58ec301c6fe47e6a91b6d6ca87e47691c35b3746af3d10897a1452"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/liangjingkanji/DrakeTyporaTheme/tree/771df28080610cf6b0bd5f6f0c1864efa2d9a41e"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "theme:catppuccin",
+      "name": "catppuccin theme foundation",
+      "version": "07d02aa110ef9eb7e7427afca5c73ba9cf7f8ebd",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "814096d2c34cc216c624738a49356f32b7237733b4f7edb0685f4e50ef5074ba"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/catppuccin/palette/tree/07d02aa110ef9eb7e7427afca5c73ba9cf7f8ebd"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "font:KaTeX_AMS-Regular.woff2",
+      "name": "KaTeX_AMS-Regular.woff2",
+      "licenses": [
+        {
+          "license": {
+            "id": "OFL-1.1"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "font:KaTeX_Caligraphic-Bold.woff2",
+      "name": "KaTeX_Caligraphic-Bold.woff2",
+      "licenses": [
+        {
+          "license": {
+            "id": "OFL-1.1"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "de7701e42cf1f4cf0b766c03fb27977207eee2f4fd5d76fa82188406da43ea4c"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "font:KaTeX_Caligraphic-Regular.woff2",
+      "name": "KaTeX_Caligraphic-Regular.woff2",
+      "licenses": [
+        {
+          "license": {
+            "id": "OFL-1.1"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5d53e70ad607c2352162dec9e0923fb54ecdafaccbf604cd8dcf7d00facb989b"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "font:KaTeX_Fraktur-Bold.woff2",
+      "name": "KaTeX_Fraktur-Bold.woff2",
+      "licenses": [
+        {
+          "license": {
+            "id": "OFL-1.1"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "74444efd593c005e3f4573b44524704c0af0a937fe911cca9e94068d0d140d3f"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "font:KaTeX_Fraktur-Regular.woff2",
+      "name": "KaTeX_Fraktur-Regular.woff2",
+      "licenses": [
+        {
+          "license": {
+            "id": "OFL-1.1"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "51814d270d06ff0255dba0799994fa4d8c84d11f09951d47595f4abb1f3602dc"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "font:KaTeX_Main-Bold.woff2",
+      "name": "KaTeX_Main-Bold.woff2",
+      "licenses": [
+        {
+          "license": {
+            "id": "OFL-1.1"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0f60d1b897938ec918c8ce073092411baf9438f6739465693ff18b0f9d20b021"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "font:KaTeX_Main-BoldItalic.woff2",
+      "name": "KaTeX_Main-BoldItalic.woff2",
+      "licenses": [
+        {
+          "license": {
+            "id": "OFL-1.1"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "99cd42a3c072d918f2f44984a807cf7aa16e13545fd0875fc07c6c65f99e715b"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "font:KaTeX_Main-Italic.woff2",
+      "name": "KaTeX_Main-Italic.woff2",
+      "licenses": [
+        {
+          "license": {
+            "id": "OFL-1.1"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "97479ca6cce906abc961ecac96faa5f9ca2e61b8e7670d475826bcdee9a7c267"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "font:KaTeX_Main-Regular.woff2",
+      "name": "KaTeX_Main-Regular.woff2",
+      "licenses": [
+        {
+          "license": {
+            "id": "OFL-1.1"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "font:KaTeX_Math-BoldItalic.woff2",
+      "name": "KaTeX_Math-BoldItalic.woff2",
+      "licenses": [
+        {
+          "license": {
+            "id": "OFL-1.1"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "dc47344dbb6cb5b655c8460d561f4df5f501b90c804ad3c6cec65fe322351ab1"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "font:KaTeX_Math-Italic.woff2",
+      "name": "KaTeX_Math-Italic.woff2",
+      "licenses": [
+        {
+          "license": {
+            "id": "OFL-1.1"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "font:KaTeX_SansSerif-Bold.woff2",
+      "name": "KaTeX_SansSerif-Bold.woff2",
+      "licenses": [
+        {
+          "license": {
+            "id": "OFL-1.1"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e99ae51144bf1232efcc1bfe5add36262c6866b0faab24fa75740e1b98577a62"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "font:KaTeX_SansSerif-Italic.woff2",
+      "name": "KaTeX_SansSerif-Italic.woff2",
+      "licenses": [
+        {
+          "license": {
+            "id": "OFL-1.1"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "00b26ac825e2095056396e0553b8ac26d3f8ad158c3826e28b4c45b385c4714a"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "font:KaTeX_SansSerif-Regular.woff2",
+      "name": "KaTeX_SansSerif-Regular.woff2",
+      "licenses": [
+        {
+          "license": {
+            "id": "OFL-1.1"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "68e8c73ef42afd3ccec58bf0fba302cce448938e7fc020a5e31f8a952eee1342"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "font:KaTeX_Script-Regular.woff2",
+      "name": "KaTeX_Script-Regular.woff2",
+      "licenses": [
+        {
+          "license": {
+            "id": "OFL-1.1"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "036d4e95149b69ff9bcc0cd55771efeb25ffa3947293e69acd78d5ac328c684b"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "font:KaTeX_Size1-Regular.woff2",
+      "name": "KaTeX_Size1-Regular.woff2",
+      "licenses": [
+        {
+          "license": {
+            "id": "OFL-1.1"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "font:KaTeX_Size2-Regular.woff2",
+      "name": "KaTeX_Size2-Regular.woff2",
+      "licenses": [
+        {
+          "license": {
+            "id": "OFL-1.1"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "font:KaTeX_Size3-Regular.woff2",
+      "name": "KaTeX_Size3-Regular.woff2",
+      "licenses": [
+        {
+          "license": {
+            "id": "OFL-1.1"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "font:KaTeX_Size4-Regular.woff2",
+      "name": "KaTeX_Size4-Regular.woff2",
+      "licenses": [
+        {
+          "license": {
+            "id": "OFL-1.1"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "font:KaTeX_Typewriter-Regular.woff2",
+      "name": "KaTeX_Typewriter-Regular.woff2",
+      "licenses": [
+        {
+          "license": {
+            "id": "OFL-1.1"
+          }
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "71d517d67827787cfabdf186914cc3358eda539e37931941f2b2fd4a21f68c0b"
+        }
+      ]
+    },
+    {
+      "type": "framework",
+      "bom-ref": "native:Sparkle@2.10.1",
+      "name": "Sparkle",
+      "version": "2.10.1",
+      "licenses": [
+        {
+          "expression": "MIT AND Zlib AND BSD-2-Clause"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1a856d2a9edb8e628de88121d7be04cf0e2167f8641650b78fca00b14244cf27"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://github.com/sparkle-project/Sparkle/releases/download/2.10.1/Sparkle-2.10.1.tar.xz"
+        }
+      ],
+      "properties": [
+        {
+          "name": "mokune:full-upstream-notices",
+          "value": "licenses/Sparkle-2.10.1.txt"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "@braintree/sanitize-url@7.1.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "@chevrotain/cst-dts-gen@13.2.0",
+      "dependsOn": [
+        "@chevrotain/gast@13.2.0"
+      ]
+    },
+    {
+      "ref": "@chevrotain/gast@13.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "@chevrotain/regexp-to-ast@13.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "@chevrotain/utils@13.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "@codemirror/autocomplete@6.20.4",
+      "dependsOn": [
+        "@codemirror/language@6.13.1",
+        "@codemirror/state@6.7.6",
+        "@codemirror/view@6.43.15"
+      ]
+    },
+    {
+      "ref": "@codemirror/commands@6.11.1",
+      "dependsOn": [
+        "@codemirror/language@6.13.1",
+        "@codemirror/state@6.7.6",
+        "@codemirror/view@6.43.15",
+        "@lezer/common@1.5.4"
+      ]
+    },
+    {
+      "ref": "@codemirror/lang-angular@0.1.4",
+      "dependsOn": [
+        "@codemirror/lang-html@6.4.12",
+        "@codemirror/lang-javascript@6.2.5",
+        "@codemirror/language@6.13.1",
+        "@lezer/common@1.5.4",
+        "@lezer/highlight@1.2.5",
+        "@lezer/lr@1.4.11"
+      ]
+    },
+    {
+      "ref": "@codemirror/lang-cpp@6.0.3",
+      "dependsOn": [
+        "@codemirror/language@6.13.1",
+        "@lezer/cpp@1.1.6"
+      ]
+    },
+    {
+      "ref": "@codemirror/lang-css@6.3.1",
+      "dependsOn": [
+        "@codemirror/language@6.13.1",
+        "@lezer/common@1.5.4",
+        "@lezer/css@1.3.9"
+      ]
+    },
+    {
+      "ref": "@codemirror/lang-go@6.0.1",
+      "dependsOn": [
+        "@codemirror/autocomplete@6.20.4",
+        "@codemirror/language@6.13.1",
+        "@lezer/common@1.5.4",
+        "@lezer/go@1.0.1"
+      ]
+    },
+    {
+      "ref": "@codemirror/lang-html@6.4.12",
+      "dependsOn": [
+        "@codemirror/lang-css@6.3.1",
+        "@codemirror/lang-javascript@6.2.5",
+        "@codemirror/language@6.13.1",
+        "@codemirror/state@6.7.6",
+        "@codemirror/view@6.43.15",
+        "@lezer/html@1.3.13"
+      ]
+    },
+    {
+      "ref": "@codemirror/lang-java@6.0.2",
+      "dependsOn": [
+        "@codemirror/language@6.13.1",
+        "@lezer/java@1.1.5"
+      ]
+    },
+    {
+      "ref": "@codemirror/lang-javascript@6.2.5",
+      "dependsOn": [
+        "@codemirror/autocomplete@6.20.4",
+        "@codemirror/language@6.13.1",
+        "@codemirror/state@6.7.6",
+        "@codemirror/view@6.43.15",
+        "@lezer/common@1.5.4",
+        "@lezer/javascript@1.5.6"
+      ]
+    },
+    {
+      "ref": "@codemirror/lang-jinja@6.0.1",
+      "dependsOn": [
+        "@codemirror/lang-html@6.4.12",
+        "@codemirror/language@6.13.1",
+        "@codemirror/state@6.7.6",
+        "@codemirror/view@6.43.15",
+        "@lezer/common@1.5.4",
+        "@lezer/highlight@1.2.5",
+        "@lezer/lr@1.4.11"
+      ]
+    },
+    {
+      "ref": "@codemirror/lang-json@6.0.2",
+      "dependsOn": [
+        "@codemirror/language@6.13.1",
+        "@lezer/json@1.0.3"
+      ]
+    },
+    {
+      "ref": "@codemirror/lang-less@6.0.2",
+      "dependsOn": [
+        "@codemirror/lang-css@6.3.1",
+        "@codemirror/language@6.13.1",
+        "@lezer/highlight@1.2.5",
+        "@lezer/lr@1.4.11"
+      ]
+    },
+    {
+      "ref": "@codemirror/lang-liquid@6.3.3",
+      "dependsOn": [
+        "@codemirror/lang-html@6.4.12",
+        "@codemirror/language@6.13.1",
+        "@codemirror/state@6.7.6",
+        "@codemirror/view@6.43.15",
+        "@lezer/common@1.5.4",
+        "@lezer/highlight@1.2.5",
+        "@lezer/lr@1.4.11"
+      ]
+    },
+    {
+      "ref": "@codemirror/lang-markdown@6.5.2",
+      "dependsOn": [
+        "@codemirror/autocomplete@6.20.4",
+        "@codemirror/lang-html@6.4.12",
+        "@codemirror/language@6.13.1",
+        "@codemirror/state@6.7.6",
+        "@codemirror/view@6.43.15",
+        "@lezer/common@1.5.4",
+        "@lezer/markdown@1.8.1"
+      ]
+    },
+    {
+      "ref": "@codemirror/lang-php@6.0.2",
+      "dependsOn": [
+        "@codemirror/lang-html@6.4.12",
+        "@codemirror/language@6.13.1",
+        "@lezer/common@1.5.4",
+        "@lezer/php@1.0.6"
+      ]
+    },
+    {
+      "ref": "@codemirror/lang-python@6.2.1",
+      "dependsOn": [
+        "@codemirror/autocomplete@6.20.4",
+        "@codemirror/language@6.13.1",
+        "@lezer/common@1.5.4",
+        "@lezer/python@1.1.19"
+      ]
+    },
+    {
+      "ref": "@codemirror/lang-rust@6.0.2",
+      "dependsOn": [
+        "@codemirror/language@6.13.1",
+        "@lezer/rust@1.0.3"
+      ]
+    },
+    {
+      "ref": "@codemirror/lang-sass@6.0.2",
+      "dependsOn": [
+        "@codemirror/lang-css@6.3.1",
+        "@codemirror/language@6.13.1",
+        "@lezer/sass@1.1.0"
+      ]
+    },
+    {
+      "ref": "@codemirror/lang-sql@6.10.0",
+      "dependsOn": [
+        "@codemirror/autocomplete@6.20.4",
+        "@codemirror/language@6.13.1",
+        "@lezer/highlight@1.2.5",
+        "@lezer/lr@1.4.11"
+      ]
+    },
+    {
+      "ref": "@codemirror/lang-vue@0.1.3",
+      "dependsOn": [
+        "@codemirror/lang-html@6.4.12",
+        "@codemirror/lang-javascript@6.2.5",
+        "@codemirror/language@6.13.1",
+        "@lezer/common@1.5.4",
+        "@lezer/highlight@1.2.5",
+        "@lezer/lr@1.4.11"
+      ]
+    },
+    {
+      "ref": "@codemirror/lang-wast@6.0.2",
+      "dependsOn": [
+        "@codemirror/language@6.13.1",
+        "@lezer/highlight@1.2.5",
+        "@lezer/lr@1.4.11"
+      ]
+    },
+    {
+      "ref": "@codemirror/lang-xml@6.1.0",
+      "dependsOn": [
+        "@codemirror/language@6.13.1",
+        "@codemirror/state@6.7.6",
+        "@codemirror/view@6.43.15",
+        "@lezer/xml@1.0.6"
+      ]
+    },
+    {
+      "ref": "@codemirror/lang-yaml@6.1.3",
+      "dependsOn": [
+        "@codemirror/language@6.13.1",
+        "@lezer/common@1.5.4",
+        "@lezer/highlight@1.2.5",
+        "@lezer/lr@1.4.11",
+        "@lezer/yaml@1.0.4"
+      ]
+    },
+    {
+      "ref": "@codemirror/language-data@6.5.2",
+      "dependsOn": [
+        "@codemirror/lang-angular@0.1.4",
+        "@codemirror/lang-cpp@6.0.3",
+        "@codemirror/lang-css@6.3.1",
+        "@codemirror/lang-go@6.0.1",
+        "@codemirror/lang-html@6.4.12",
+        "@codemirror/lang-java@6.0.2",
+        "@codemirror/lang-javascript@6.2.5",
+        "@codemirror/lang-jinja@6.0.1",
+        "@codemirror/lang-json@6.0.2",
+        "@codemirror/lang-less@6.0.2",
+        "@codemirror/lang-liquid@6.3.3",
+        "@codemirror/lang-markdown@6.5.2",
+        "@codemirror/lang-php@6.0.2",
+        "@codemirror/lang-python@6.2.1",
+        "@codemirror/lang-rust@6.0.2",
+        "@codemirror/lang-sass@6.0.2",
+        "@codemirror/lang-sql@6.10.0",
+        "@codemirror/lang-vue@0.1.3",
+        "@codemirror/lang-wast@6.0.2",
+        "@codemirror/lang-xml@6.1.0",
+        "@codemirror/lang-yaml@6.1.3",
+        "@codemirror/language@6.13.1",
+        "@codemirror/legacy-modes@6.5.5"
+      ]
+    },
+    {
+      "ref": "@codemirror/language@6.13.1",
+      "dependsOn": [
+        "@codemirror/state@6.7.6",
+        "@codemirror/streamparser@6.0.0",
+        "@codemirror/view@6.43.15",
+        "@lezer/common@1.5.4",
+        "@lezer/highlight@1.2.5",
+        "style-mod@4.1.4"
+      ]
+    },
+    {
+      "ref": "@codemirror/legacy-modes@6.5.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "@codemirror/search@6.7.2",
+      "dependsOn": [
+        "@codemirror/state@6.7.6",
+        "@codemirror/view@6.43.15",
+        "crelt@1.0.7"
+      ]
+    },
+    {
+      "ref": "@codemirror/state@6.7.6",
+      "dependsOn": [
+        "@marijn/find-cluster-break@1.0.4"
+      ]
+    },
+    {
+      "ref": "@codemirror/streamparser@6.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "@codemirror/view@6.43.15",
+      "dependsOn": [
+        "@codemirror/state@6.7.6",
+        "crelt@1.0.7",
+        "style-mod@4.1.4",
+        "w3c-keyname@2.2.8"
+      ]
+    },
+    {
+      "ref": "@iconify/utils@3.1.7",
+      "dependsOn": []
+    },
+    {
+      "ref": "@lezer/common@1.5.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "@lezer/cpp@1.1.6",
+      "dependsOn": [
+        "@lezer/highlight@1.2.5",
+        "@lezer/lr@1.4.11"
+      ]
+    },
+    {
+      "ref": "@lezer/css@1.3.9",
+      "dependsOn": [
+        "@lezer/highlight@1.2.5",
+        "@lezer/lr@1.4.11"
+      ]
+    },
+    {
+      "ref": "@lezer/go@1.0.1",
+      "dependsOn": [
+        "@lezer/highlight@1.2.5",
+        "@lezer/lr@1.4.11"
+      ]
+    },
+    {
+      "ref": "@lezer/highlight@1.2.5",
+      "dependsOn": [
+        "@lezer/common@1.5.4"
+      ]
+    },
+    {
+      "ref": "@lezer/html@1.3.13",
+      "dependsOn": [
+        "@lezer/common@1.5.4",
+        "@lezer/highlight@1.2.5",
+        "@lezer/lr@1.4.11"
+      ]
+    },
+    {
+      "ref": "@lezer/java@1.1.5",
+      "dependsOn": [
+        "@lezer/highlight@1.2.5",
+        "@lezer/lr@1.4.11"
+      ]
+    },
+    {
+      "ref": "@lezer/javascript@1.5.6",
+      "dependsOn": [
+        "@lezer/highlight@1.2.5",
+        "@lezer/lr@1.4.11"
+      ]
+    },
+    {
+      "ref": "@lezer/json@1.0.3",
+      "dependsOn": [
+        "@lezer/highlight@1.2.5",
+        "@lezer/lr@1.4.11"
+      ]
+    },
+    {
+      "ref": "@lezer/lr@1.4.11",
+      "dependsOn": [
+        "@lezer/common@1.5.4"
+      ]
+    },
+    {
+      "ref": "@lezer/markdown@1.8.1",
+      "dependsOn": [
+        "@lezer/common@1.5.4",
+        "@lezer/highlight@1.2.5"
+      ]
+    },
+    {
+      "ref": "@lezer/php@1.0.6",
+      "dependsOn": [
+        "@lezer/highlight@1.2.5",
+        "@lezer/lr@1.4.11"
+      ]
+    },
+    {
+      "ref": "@lezer/python@1.1.19",
+      "dependsOn": [
+        "@lezer/highlight@1.2.5",
+        "@lezer/lr@1.4.11"
+      ]
+    },
+    {
+      "ref": "@lezer/rust@1.0.3",
+      "dependsOn": [
+        "@lezer/highlight@1.2.5",
+        "@lezer/lr@1.4.11"
+      ]
+    },
+    {
+      "ref": "@lezer/sass@1.1.0",
+      "dependsOn": [
+        "@lezer/highlight@1.2.5",
+        "@lezer/lr@1.4.11"
+      ]
+    },
+    {
+      "ref": "@lezer/xml@1.0.6",
+      "dependsOn": [
+        "@lezer/highlight@1.2.5",
+        "@lezer/lr@1.4.11"
+      ]
+    },
+    {
+      "ref": "@lezer/yaml@1.0.4",
+      "dependsOn": [
+        "@lezer/highlight@1.2.5",
+        "@lezer/lr@1.4.11"
+      ]
+    },
+    {
+      "ref": "@marijn/find-cluster-break@1.0.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "@mermaid-js/parser@2.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "@upsetjs/venn.js@2.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "application:mokune-md",
+      "dependsOn": [
+        "@codemirror/autocomplete@6.20.4",
+        "@codemirror/commands@6.11.1",
+        "@codemirror/lang-markdown@6.5.2",
+        "@codemirror/language-data@6.5.2",
+        "@codemirror/language@6.13.1",
+        "@codemirror/search@6.7.2",
+        "@codemirror/state@6.7.6",
+        "@codemirror/view@6.43.15",
+        "@lezer/highlight@1.2.5",
+        "dompurify@3.4.17",
+        "katex@0.19.0",
+        "markdown-it-footnote@4.0.0",
+        "markdown-it@15.0.3",
+        "mermaid@12.2.0",
+        "yaml@2.9.1",
+        "theme:ursine",
+        "theme:dracula",
+        "theme:drake",
+        "theme:catppuccin",
+        "font:KaTeX_AMS-Regular.woff2",
+        "font:KaTeX_Caligraphic-Bold.woff2",
+        "font:KaTeX_Caligraphic-Regular.woff2",
+        "font:KaTeX_Fraktur-Bold.woff2",
+        "font:KaTeX_Fraktur-Regular.woff2",
+        "font:KaTeX_Main-Bold.woff2",
+        "font:KaTeX_Main-BoldItalic.woff2",
+        "font:KaTeX_Main-Italic.woff2",
+        "font:KaTeX_Main-Regular.woff2",
+        "font:KaTeX_Math-BoldItalic.woff2",
+        "font:KaTeX_Math-Italic.woff2",
+        "font:KaTeX_SansSerif-Bold.woff2",
+        "font:KaTeX_SansSerif-Italic.woff2",
+        "font:KaTeX_SansSerif-Regular.woff2",
+        "font:KaTeX_Script-Regular.woff2",
+        "font:KaTeX_Size1-Regular.woff2",
+        "font:KaTeX_Size2-Regular.woff2",
+        "font:KaTeX_Size3-Regular.woff2",
+        "font:KaTeX_Size4-Regular.woff2",
+        "font:KaTeX_Typewriter-Regular.woff2",
+        "native:Sparkle@2.10.1"
+      ]
+    },
+    {
+      "ref": "chevrotain@13.2.0",
+      "dependsOn": [
+        "@chevrotain/cst-dts-gen@13.2.0",
+        "@chevrotain/gast@13.2.0",
+        "@chevrotain/regexp-to-ast@13.2.0",
+        "@chevrotain/utils@13.2.0"
+      ]
+    },
+    {
+      "ref": "cose-base@1.0.3",
+      "dependsOn": [
+        "layout-base@1.0.2"
+      ]
+    },
+    {
+      "ref": "cose-base@2.2.0",
+      "dependsOn": [
+        "layout-base@2.0.1"
+      ]
+    },
+    {
+      "ref": "crelt@1.0.7",
+      "dependsOn": []
+    },
+    {
+      "ref": "cytoscape-cose-bilkent@4.1.0",
+      "dependsOn": [
+        "cose-base@1.0.3"
+      ]
+    },
+    {
+      "ref": "cytoscape-fcose@2.2.0",
+      "dependsOn": [
+        "cose-base@2.2.0"
+      ]
+    },
+    {
+      "ref": "cytoscape@3.34.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "d3-array@2.12.1",
+      "dependsOn": [
+        "internmap@1.0.1"
+      ]
+    },
+    {
+      "ref": "d3-array@3.2.4",
+      "dependsOn": [
+        "internmap@2.0.3"
+      ]
+    },
+    {
+      "ref": "d3-axis@3.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "d3-brush@3.0.0",
+      "dependsOn": [
+        "d3-dispatch@3.0.1",
+        "d3-drag@3.0.0",
+        "d3-interpolate@3.0.1",
+        "d3-selection@3.0.0",
+        "d3-transition@3.0.1"
+      ]
+    },
+    {
+      "ref": "d3-chord@3.0.1",
+      "dependsOn": [
+        "d3-path@3.1.0"
+      ]
+    },
+    {
+      "ref": "d3-color@3.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "d3-contour@4.0.2",
+      "dependsOn": [
+        "d3-array@3.2.4"
+      ]
+    },
+    {
+      "ref": "d3-delaunay@6.0.4",
+      "dependsOn": [
+        "delaunator@5.1.0"
+      ]
+    },
+    {
+      "ref": "d3-dispatch@3.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "d3-drag@3.0.0",
+      "dependsOn": [
+        "d3-dispatch@3.0.1",
+        "d3-selection@3.0.0"
+      ]
+    },
+    {
+      "ref": "d3-dsv@3.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "d3-ease@3.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "d3-fetch@3.0.1",
+      "dependsOn": [
+        "d3-dsv@3.0.1"
+      ]
+    },
+    {
+      "ref": "d3-force@3.0.0",
+      "dependsOn": [
+        "d3-dispatch@3.0.1",
+        "d3-quadtree@3.0.1",
+        "d3-timer@3.0.1"
+      ]
+    },
+    {
+      "ref": "d3-format@3.1.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "d3-geo@3.1.1",
+      "dependsOn": [
+        "d3-array@3.2.4"
+      ]
+    },
+    {
+      "ref": "d3-hierarchy@3.1.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "d3-interpolate@3.0.1",
+      "dependsOn": [
+        "d3-color@3.1.0"
+      ]
+    },
+    {
+      "ref": "d3-path@1.0.9",
+      "dependsOn": []
+    },
+    {
+      "ref": "d3-path@3.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "d3-polygon@3.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "d3-quadtree@3.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "d3-random@3.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "d3-sankey@0.12.3",
+      "dependsOn": [
+        "d3-array@2.12.1",
+        "d3-shape@1.3.7"
+      ]
+    },
+    {
+      "ref": "d3-scale-chromatic@3.1.0",
+      "dependsOn": [
+        "d3-color@3.1.0",
+        "d3-interpolate@3.0.1"
+      ]
+    },
+    {
+      "ref": "d3-scale@4.0.2",
+      "dependsOn": [
+        "d3-array@3.2.4",
+        "d3-format@3.1.2",
+        "d3-interpolate@3.0.1",
+        "d3-time-format@4.1.0",
+        "d3-time@3.1.0"
+      ]
+    },
+    {
+      "ref": "d3-selection@3.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "d3-shape@1.3.7",
+      "dependsOn": [
+        "d3-path@1.0.9"
+      ]
+    },
+    {
+      "ref": "d3-shape@3.2.0",
+      "dependsOn": [
+        "d3-path@3.1.0"
+      ]
+    },
+    {
+      "ref": "d3-time-format@4.1.0",
+      "dependsOn": [
+        "d3-time@3.1.0"
+      ]
+    },
+    {
+      "ref": "d3-time@3.1.0",
+      "dependsOn": [
+        "d3-array@3.2.4"
+      ]
+    },
+    {
+      "ref": "d3-timer@3.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "d3-transition@3.0.1",
+      "dependsOn": [
+        "d3-color@3.1.0",
+        "d3-dispatch@3.0.1",
+        "d3-ease@3.0.1",
+        "d3-interpolate@3.0.1",
+        "d3-selection@3.0.0",
+        "d3-timer@3.0.1"
+      ]
+    },
+    {
+      "ref": "d3-zoom@3.0.0",
+      "dependsOn": [
+        "d3-dispatch@3.0.1",
+        "d3-drag@3.0.0",
+        "d3-interpolate@3.0.1",
+        "d3-selection@3.0.0",
+        "d3-transition@3.0.1"
+      ]
+    },
+    {
+      "ref": "d3@7.9.0",
+      "dependsOn": [
+        "d3-array@3.2.4",
+        "d3-axis@3.0.0",
+        "d3-brush@3.0.0",
+        "d3-chord@3.0.1",
+        "d3-color@3.1.0",
+        "d3-contour@4.0.2",
+        "d3-delaunay@6.0.4",
+        "d3-dispatch@3.0.1",
+        "d3-drag@3.0.0",
+        "d3-dsv@3.0.1",
+        "d3-ease@3.0.1",
+        "d3-fetch@3.0.1",
+        "d3-force@3.0.0",
+        "d3-format@3.1.2",
+        "d3-geo@3.1.1",
+        "d3-hierarchy@3.1.2",
+        "d3-interpolate@3.0.1",
+        "d3-path@3.1.0",
+        "d3-polygon@3.0.1",
+        "d3-quadtree@3.0.1",
+        "d3-random@3.0.1",
+        "d3-scale-chromatic@3.1.0",
+        "d3-scale@4.0.2",
+        "d3-selection@3.0.0",
+        "d3-shape@3.2.0",
+        "d3-time-format@4.1.0",
+        "d3-time@3.1.0",
+        "d3-timer@3.0.1",
+        "d3-transition@3.0.1",
+        "d3-zoom@3.0.0"
+      ]
+    },
+    {
+      "ref": "dagre-d3-es@7.0.14",
+      "dependsOn": [
+        "lodash-es@4.18.1"
+      ]
+    },
+    {
+      "ref": "dayjs@1.11.23",
+      "dependsOn": []
+    },
+    {
+      "ref": "delaunator@5.1.0",
+      "dependsOn": [
+        "robust-predicates@3.0.3"
+      ]
+    },
+    {
+      "ref": "dompurify@3.4.17",
+      "dependsOn": []
+    },
+    {
+      "ref": "elkjs@0.9.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "entities@8.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "es-toolkit@1.52.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "internmap@1.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "internmap@2.0.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "katex@0.19.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "khroma@2.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "layout-base@1.0.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "layout-base@2.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "linkify-it@6.1.0",
+      "dependsOn": [
+        "uc.micro@3.0.0"
+      ]
+    },
+    {
+      "ref": "lodash-es@4.18.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "markdown-it-footnote@4.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "markdown-it@15.0.3",
+      "dependsOn": [
+        "entities@8.1.0",
+        "linkify-it@6.1.0",
+        "mdurl@2.1.0",
+        "punycode.js@2.3.1",
+        "uc.micro@3.0.0"
+      ]
+    },
+    {
+      "ref": "marked@16.4.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "mdurl@2.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "mermaid@12.2.0",
+      "dependsOn": [
+        "@braintree/sanitize-url@7.1.2",
+        "@iconify/utils@3.1.7",
+        "@mermaid-js/parser@2.0.1",
+        "@upsetjs/venn.js@2.0.0",
+        "chevrotain@13.2.0",
+        "cytoscape-cose-bilkent@4.1.0",
+        "cytoscape-fcose@2.2.0",
+        "cytoscape@3.34.4",
+        "d3-sankey@0.12.3",
+        "d3@7.9.0",
+        "dagre-d3-es@7.0.14",
+        "dayjs@1.11.23",
+        "dompurify@3.4.17",
+        "elkjs@0.9.3",
+        "es-toolkit@1.52.0",
+        "katex@0.19.0",
+        "khroma@2.1.0",
+        "marked@16.4.2",
+        "roughjs@4.6.6",
+        "stylis@4.4.0",
+        "ts-dedent@2.3.0",
+        "uuid@14.0.3"
+      ]
+    },
+    {
+      "ref": "punycode.js@2.3.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "robust-predicates@3.0.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "roughjs@4.6.6",
+      "dependsOn": []
+    },
+    {
+      "ref": "style-mod@4.1.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "stylis@4.4.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "ts-dedent@2.3.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "uc.micro@3.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "uuid@14.0.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "w3c-keyname@2.2.8",
+      "dependsOn": []
+    },
+    {
+      "ref": "yaml@2.9.1",
+      "dependsOn": []
+    }
+  ],
+  "properties": [
+    {
+      "name": "mokune:scope",
+      "value": "Actual production bundle packages, theme foundations and embedded fonts; separate installed/build inventory is legal/dependencies.json"
+    },
+    {
+      "name": "mokune:lock-sha256",
+      "value": "f4d6f7a569ebe1bbfe1e7057652af133aeba4984e5817fffebaaabe86b0c6b41"
+    }
+  ]
+}

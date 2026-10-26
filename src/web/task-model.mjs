@@ -1,0 +1,3 @@
+import {markdownLanguage} from '@codemirror/lang-markdown';
+export function collectTasks(text){const tasks=[];markdownLanguage.parser.parse(text).iterate({enter(node){if(node.name==='TaskMarker'){const end=text.indexOf('\n',node.to),to=end<0?text.length:end;tasks.push({from:node.from,to:node.to,checked:/[xX]/.test(text.slice(node.from,node.to)),title:text.slice(node.to,to).trim()});}}});return tasks;}
+export function taskAt(text,position){return collectTasks(text).find(task=>{const start=text.lastIndexOf('\n',task.from-1)+1,end=text.indexOf('\n',task.to);return position>=start&&position<=(end<0?text.length:end);});}

@@ -1,0 +1,1359 @@
+
+// SCSS VARIABLES //
+
+// Umbra or Polar?
+$umbra: true !default;
+
+// Font variables
+$paragraph-font: "'Avenir Next LT Pro', 'Lato', sans-serif";
+$header-font: "'Adelle', 'Times New Roman', serif";
+$monospace-font: "'Fira Mono', 'Cousine', 'Consolas', monospace";
+
+// Cyrillic font support
+$cyrillic-font: false !default;
+@if $cyrillic-font {
+  $paragraph-font: "'Avenir Next Cyr', 'Lato', sans-serif";
+  $header-font: "'Adelle Cyrillic', 'Times New Roman', serif";
+}
+
+// Alternative font support (supports Cyrillic, Greek, Vietnamese, among others)
+$alt-font: false !default;
+@if $alt-font {
+  $paragraph-font: "'Open Sans', 'Lato', sans-serif";
+  $header-font: "'Roboto Slab', 'Times New Roman', serif";
+}
+
+// Important colors for writing (text, links, code, etc.)
+$bg-color: #1e2022 !default;
+$text-color: #ddd !default;
+$md-char-color: #5b5b5b !default;
+$meta-content-color: #757575 !default;
+$link-color: #6bcafb !default;
+$mark-color: #107da2eb !default;
+$quote-color: #888e9c !default;
+$code-bg-color: #282a36 !default;
+$code-border-color: #ffffff26 !default;
+$kbd-bg-color: #282a36 !default;
+$selected-text-bg-color: #285194 !default;
+
+// Button and table colors
+$primary-color: #428bca !default;
+$primary-btn-border-color: #285e8e !default;
+$accent-color: #3c3c3c !default;
+$table-head-color: #4d4d4d !default;
+
+// Active and hover colors
+$active-file-bg-color: #1b1b1d !default;
+$active-search-item-bg-color: #212121 !default;
+$item-hover-bg-color: #2e2e2e !default;
+$item-hover-text-color: #fff !default;
+
+// Sidebar colors
+$sidebar-bg-color: #2b2b2b !default;
+$sidebar-bg-hover-color: $bg-color !default;
+$sidebar-border-color: #19191c !default;
+$sidebar-text-color: $text-color !default;
+$search-hit-bg-color: #428bca40 !default;
+$search-select-bg-color: #428bca90 !default;
+$files-menu-hover-color: $bg-color !default;
+
+// Tooltip and footnote colors
+$tooltip-bg-color: $sidebar-bg-color !default;
+$tooltip-text-color: $text-color !default;
+$tooltip-border-color: #00000040 !default;
+$footnote-sup-bg-color: #111 !default;
+$footnote-tooltip-bg-color: #111 !default;
+$footnote-tooltip-text-color: $text-color !default;
+
+// Dropdown and footer colors
+$dropdown-bg-color: $sidebar-bg-color !default;
+$dropdown-hover-bg-color: $bg-color !default;
+$dropdown-divider-color: $bg-color !default;
+$footer-hover-color: $sidebar-bg-color !default;
+
+// Megamenu colors
+$megamenu-bg-color: $sidebar-bg-color !default;
+$megamenu-text-color: $text-color !default;
+$megamenu-hover-bg-color: #222 !default;
+$megamenu-active-bg-color: #181818 !default;
+$megamenu-sidebar-bg-color: $bg-color !default;
+$megamenu-sidebar-hover-bg-color: #161819 !default;
+$megamenu-sidebar-active-bg-color: #101010 !default;
+$megamenu-button-border-color: #9292928f !default;
+
+// Mermaid diagram colors
+$mermaid-node-fill: $bg-color !default;
+$mermaid-node-border: $code-border-color !default;
+$mermaid-task-fill: #8a88c9 !default;
+$mermaid-task-border: #5f5caf !default;
+$mermaid-task-done-fill: #6b6b6b !default;
+$mermaid-task-done-border: #3d3d3d !default;
+$mermaid-task-active-fill: #737cff !default;
+$mermaid-task-active-border: #413da0 !default;
+$mermaid-task-crit-fill: #d66979 !default;
+$mermaid-task-crit-border: #8f1d22 !default;
+
+// FONT-FACES //
+
+@if $cyrillic-font {         // Cyrillic font-faces
+  // Avenir Next Cyr provided by Adrian Frutiger and Akira Kobayashi.
+  // Downloaded from `https://www.cufonfonts.com/font/avenir-next-cyr`
+  @font-face {
+    font-family: "Avenir Next Cyr";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Avenir Next Cyr Regular"), url("./ursine/AvenirNextCyr-Regular.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "Avenir Next Cyr";
+    font-style: italic;
+    font-weight: normal;
+    src: local("Avenir Next Cyr Italic"), url("./ursine/AvenirNextCyr-Italic.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "Avenir Next Cyr";
+    font-style: normal;
+    font-weight: bold;
+    src: local("Avenir Next Cyr Demi"), url("./ursine/AvenirNextCyr-Demi.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "Avenir Next Cyr";
+    font-style: italic;
+    font-weight: bold;
+    src: local("Avenir Next Cyr DemiItalic"), url("./ursine/AvenirNextCyr-DemiItalic.woff") format("woff");
+  }
+
+  // Adelle Cyrillic provided by Veronika Burian and Jos Scaglione
+  // Downloaded from `https://www.cufonfonts.com/font/adelle-cyrillic`
+  @font-face {
+    font-family: "Adelle Cyrillic";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Adelle Cyrillic Light"), url("./ursine/AdelleCyrillic-Light.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "Adelle Cyrillic";
+    font-style: italic;
+    font-weight: normal;
+    src: local("Adelle Cyrillic Light Italic"), url("./ursine/AdelleCyrillic-LightItalic.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "Adelle Cyrillic";
+    font-style: normal;
+    font-weight: bold;
+    src: local("Adelle Cyrillic SemiBold"), url("./ursine/AdelleCyrillic-SemiBold.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "Adelle Cyrillic";
+    font-style: italic;
+    font-weight: bold;
+    src: local("Adelle Cyrillic SemiBold Italic"), url("./ursine/AdelleCyrillic-SemiBoldItalic.woff") format("woff");
+  }
+} @else if $alt-font {       // Alternative font
+  // Open Sans provided by Steve Matteson
+  // Downloaded from `https://fonts.google.com/specimen/Open+Sans`
+  @font-face {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Open Sans Regular"), url("./ursine/OpenSans-Regular.ttf") format("ttf");
+  }
+
+  @font-face {
+    font-family: "Open Sans";
+    font-style: italic;
+    font-weight: normal;
+    src: local("Open Sans Light Italic"), url("./ursine/OpenSans-LightItalic.ttf") format("ttf");
+  }
+
+  @font-face {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: bold;
+    src: local("Open Sans SemiBold"), url("./ursine/OpenSans-SemiBold.ttf") format("ttf");
+  }
+
+  @font-face {
+    font-family: "Open Sans";
+    font-style: italic;
+    font-weight: bold;
+    src: local("Open Sans Italic"), url("./ursine/OpenSans-Italic.ttf") format("ttf");
+  }
+
+  // Roboto Slab provided by Christian Robertson
+  // Downloaded from `https://fonts.google.com/specimen/Roboto+Slab`
+  @font-face {
+    font-family: "Roboto Slab";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Roboto Slab Extra Light"), url("./ursine/RobotoSlab-ExtraLight.ttf") format("ttf");
+  }
+
+  @font-face {
+    font-family: "Roboto Slab";
+    font-style: normal;
+    font-weight: bold;
+    src: local("Roboto Slab Regular"), url("./ursine/RobotoSlab-Regular.ttf") format("ttf");
+  }
+} @else {               // Normal font-faces
+  // Avenir Next LT Pro provided by Adrian Frutiger and Akira Kobayashi.
+  // Downloaded from `https://www.cufonfonts.com/font/avenir-next-lt-pro`
+  @font-face {
+    font-family: 'Avenir Next LT Pro';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avenir Next LT Pro Regular'), url('./ursine/AvenirNextLTPro-Regular.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'Avenir Next LT Pro';
+    font-style: italic;
+    font-weight: normal;
+    src: local('Avenir Next LT Pro It'), url('./ursine/AvenirNextLTPro-Italic.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'Avenir Next LT Pro';
+    font-style: normal;
+    font-weight: bold;
+    src: local('Avenir Next LT Pro Demi'), url('./ursine/AvenirNextLTPro-Demi.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'Avenir Next LT Pro';
+    font-style: italic;
+    font-weight: bold;
+    src: local('Avenir Next LT Pro DemiIt'), url('./ursine/AvenirNextLTPro-DemiItalic.woff') format('woff');
+  }
+
+  // Adelle provided by Veronika Burian and Jos Scaglione
+  // Downloaded from `https://www.cufonfonts.com/font/adelle`
+  @font-face {
+    font-family: 'Adelle';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Adelle Light'), url('./ursine/Adelle-Light.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'Adelle';
+    font-style: italic;
+    font-weight: normal;
+    src: local('Adelle Light Italic'), url('./ursine/Adelle-LightItalic.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'Adelle';
+    font-style: normal;
+    font-weight: bold;
+    src: local('Adelle SemiBold'), url('./ursine/Adelle-SemiBold.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'Adelle';
+    font-style: italic;
+    font-weight: bold;
+    src: local('Adelle SemiBold Italic'), url('./ursine/Adelle-SemiBoldItalic.woff') format('woff');
+  }
+}
+
+// Fira Mono provided by Carrois Apostrophe from Google Fonts
+// Downloaded from `https://fonts.google.com/specimen/Fira+Mono`
+@font-face {
+  font-family: 'Fira Mono';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Fira Mono Regular'), url('./ursine/FiraMono-Regular.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Fira Mono';
+  font-style: normal;
+  font-weight: bold;
+  src: local('Fira Mono Bold'), url('./ursine/FiraMono-Bold.ttf') format('ttf');
+}
+
+// IMPORTS //
+
+@import 'ursine/code-dracula';
+
+// ROOT VARIABLES //
+
+:root {
+  --bg-color: #{$bg-color};                               // background color
+  --text-color: #{$text-color};                           // text color
+  --md-char-color: #{$md-char-color};                     // color of meta characters (i.e. `*` in markdown)
+  --meta-content-color: #{$meta-content-color};           // color of meta contents (i.e. image text or link address in markdown)
+  --table-border-color: #{$md-char-color};                // color of table cell borders
+  --select-text-bg-color: #{$selected-text-bg-color};     // background color for selected text
+
+  --primary-color: #{$primary-color};                        // primary color
+  --primary-btn-border-color: #{$primary-btn-border-color};  // primary color for button borders
+  --primary-btn-text-color: #{$text-color};                  // text color for buttons
+
+  --window-border: 1px solid #{$active-file-bg-color};   // border color for window and sidebar
+
+  --active-file-bg-color: #{$active-file-bg-color};                 // background color for active file in sidebar
+  --active-file-text-color: inherit;                                // text color for selected file
+  --active-file-border-color: #{$meta-content-color};               // border color for selected file
+  --active-search-item-bg-color: #{$active-search-item-bg-color};   // background color for active search item
+
+  --side-bar-bg-color: #{$sidebar-bg-color};             // sidebar background color
+  --item-hover-bg-color: #{$item-hover-bg-color};        // background color of control items when hovering
+  --item-hover-text-color: #{$item-hover-text-color};    // text color upon hovering over menu items
+  --search-select-text-color: #{$text-color};            // text color for selected searched text
+  --search-select-bg-color: #{$search-select-bg-color};  // background color for selected searched text
+  --rawblock-edit-panel-bd: #{$accent-color};            // background color for inline HTML 'edit panel' blocks
+  --monospace: #{$monospace-font};                       // monospace font for code
+
+  --node-fill: #{$mermaid-node-fill};           // Mermaid node fill color
+  --node-border: #{$mermaid-node-border};       // Mermaid node border
+}
+
+// STYLING //
+
+// Tags
+html, body {
+  font-family: unquote($paragraph-font);
+}
+
+body { font-size: 1em; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: unquote($header-font);
+}
+
+p { margin: .5rem 0; }
+
+a { color: $link-color; }
+
+del { color: $md-char-color; }
+
+mark {
+  padding: 0 2px 2px;
+  background: $mark-color;
+  color: inherit;
+}
+
+blockquote {
+  position: relative;
+  margin: 1rem 0 1rem 2rem;
+  font-family: unquote($header-font);
+  color: $quote-color;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    height: 100%;
+    width: .25rem;
+    background: $primary-color;
+  }
+}
+
+code,
+.md-fences,
+tt {
+  font-family: unquote($monospace-font);
+  font-size: 1rem;
+}
+
+code {
+  font-size: .9em;
+  border: 1px solid $code-border-color;
+  border-radius: .25rem;
+  padding: 1px .25rem;
+  background: $code-bg-color;
+}
+
+kbd {
+  font-family: unquote($monospace-font);
+  font-size: .875rem;
+  border: 2px solid $code-border-color;
+  background: $kbd-bg-color;
+  color: $text-color;
+  box-shadow: none;
+}
+
+hr { border-color: $md-char-color; }
+
+table {
+  border: 1px solid $md-char-color;
+  margin: 1rem 0;
+
+  tr:nth-child(2n) {
+    background: $accent-color;
+  }
+}
+
+thead { background: $table-head-color; }
+
+td, th {
+  padding: .35rem .7rem;
+  border: 1px solid $md-char-color;
+}
+
+// Writing area
+#write {
+  position: static;
+  width: 90%;
+  max-width: 700px;
+  line-height: 1.6;
+
+  transform: none;    // Windows-specific fix
+
+  h1, h2, h3, h4, h5, h6, p, pre {
+    width: auto;
+  }
+
+  // Headers
+  h1, h2, h3, h4, h5, h6 {
+    &::before {
+      position: absolute;
+      left: auto;
+      right: calc(100% + .75em);
+      top: 0;
+      color: $md-char-color;
+      font-size: 1rem;
+      font-weight: bold;
+      font-variant: 'small-caps';
+    }
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin: 1rem 0;
+
+    &::before {
+      content: 'H1';
+      top: .87rem;
+    }
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    margin: .7rem 0;
+
+    &::before {
+      content: 'H2';
+      top: .43rem;
+    }
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    margin: .5rem 0;
+
+    &::before {
+      content: 'H3';
+      top: .2rem;
+    }
+  }
+
+  h4 {
+    font-size: 1.1rem;
+    margin: .2rem 0;
+
+    &::before {
+      content: 'H4';
+      top: .07rem;
+    }
+  }
+
+  h5, h6 {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  h5::before {
+    content: 'H5';
+  }
+
+  h6::before {
+    content: 'H6';
+  }
+
+  > h1.md-focus::before,
+  > h2.md-focus::before,
+  > h3.md-focus::before,
+  > h4.md-focus::before,
+  > h5.md-focus::before,
+  > h6.md-focus::before {
+    color: $meta-content-color;
+    padding: 0;
+    border: 0;
+    line-height: inherit;
+  }
+
+  // Lists
+  ol, ul {
+    padding-left: 2rem;
+    margin: .5rem 0;
+
+    > li {
+      color: $primary-color;
+      font-weight: bold;
+
+      > * {
+        color: $text-color;
+        font-weight: normal;
+      }
+
+      > *:not(ol):not(ul) {
+        padding-left: .25rem;
+      }
+    }
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  // Checklists
+  .md-task-list-item {
+    $transition-duration: .3s;
+
+    > input {
+      -webkit-appearance: initial;
+      display: block;
+      position: absolute;
+      border: 1px solid $md-char-color;
+      border-radius: .25rem;
+      margin-top: .1rem;
+      margin-left: -1.8rem;
+      height: 1.2rem;
+      width: 1.2rem;
+      transition: background $transition-duration;
+
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+
+      &:hover {
+        background: $accent-color;
+      }
+
+      &[checked]::before {
+        content: '';
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        height: 60%;
+        width: 2px;
+        transform: rotate(40deg);
+        background: $text-color;
+      }
+
+      &[checked]::after {
+        content: '';
+        position: absolute;
+        top: 46%;
+        left: 25%;
+        height: 30%;
+        width: 2px;
+        transform: rotate(-40deg);
+        background: $text-color;
+      }
+    }
+
+    > p {
+      transition: color $transition-duration, opacity $transition-duration;
+    }
+
+    &.task-list-done > p {
+      color: $md-char-color;
+      text-decoration: line-through;
+
+      > .md-emoji {
+        opacity: .5;
+      }
+
+      > .md-link > a {
+        opacity: .6;
+      }
+    }
+  }
+
+  // YAML
+  .md-meta-block {
+    background-color: transparent;
+    border-bottom: 1px solid $md-char-color;
+    padding-bottom: 1rem;
+    opacity: .8;
+  }
+
+  // Table toolbar
+  .md-table-edit {
+    border-top: 1px solid $md-char-color;
+    margin-top: -29px !important;
+    padding: 3px 0;
+  }
+
+  .md-grid-board {
+    a {
+      &.md-active,
+      &:hover {
+        background: $primary-color;
+        color: $md-char-color;
+      }
+    }
+
+    tr[row='1'] a {
+      &.md-active,
+      &:hover {
+        background: $primary-btn-border-color;
+        color: $md-char-color;
+      }
+    }
+  }
+
+  .btn-group .btn + .btn {
+    margin-left: 0;
+  }
+
+  .btn-default {
+    &.active,
+    &.focus,
+    &:active,
+    &:focus,
+    &:hover,
+    .open > &.dropdown-toggle {
+      background: transparent;
+      color: inherit;
+    }
+  }
+
+  // Table drag areas
+  .typora-table-drag-area {
+    &::after {
+      content: '';
+      position: absolute;
+      border: 2px solid $text-color;
+      opacity: 0;
+      transition: opacity .4s;
+    }
+
+    #typora-table-row-tracker &::after,
+    #typora-table-col-tracker &::after {
+      opacity: 1;
+    }
+
+    #typora-table-row-tracker &::after {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 100%;
+    }
+
+    #typora-table-col-tracker &::after {
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 100%;
+      height: 0;
+    }
+  }
+
+  // Table of contents
+  .md-toc-tooltip {
+    z-index: 10;
+  }
+
+  .md-toc-item {
+    font-size: 1.1rem;
+    color: var(--primary-btn-border-color);
+  }
+
+  .md-toc-h1 {
+    font-family: unquote($header-font);
+    font-size: 1.3rem;
+  }
+
+  .md-toc-h2 {
+    font-size: 1.2rem;
+  }
+
+  // Footnotes
+  .md-footnote {
+    font-family: unquote($header-font);
+    font-size: .8em;
+    border: 1px solid $accent-color;
+    padding: 0 4px;
+    background: $footnote-sup-bg-color;
+    color: $text-color;
+  }
+
+  .md-def-split {
+    min-width: 1ch;
+  }
+
+  .md-def-name {
+    &::before, &::after {
+      color: $meta-content-color;
+    }
+  }
+
+  // Image meta text
+  .md-image > .md-meta {
+    color: $meta-content-color;
+  }
+
+  // Inline styles
+  .md-rawblock-tooltip {
+    top: -1.5rem;
+    height: 1.5rem;
+    padding: .25rem;
+  }
+
+  // Search results
+  .md-search-hit {
+    background: $search-hit-bg-color;
+    border-radius: .125rem;
+  }
+
+  .md-search-select {
+    background: $search-select-bg-color;
+    border: 1px solid $megamenu-button-border-color;
+    padding: 0 1px;
+  }
+
+  // Mermaid diagrams
+  pre[lang="mermaid"] {
+    .md-diagram-panel {
+      border-color: $code-border-color;
+    }
+
+    tspan {
+      fill: $text-color;
+    }
+
+    // Mermaid graphs diagrams
+    &[mermaid-type="graph"] {
+      path.path {
+        & ~ defs marker {
+          fill: $text-color;
+        }
+      }
+
+      .cluster rect {
+        fill: transparent !important;
+        stroke: $mermaid-node-border !important;
+      }
+    }
+
+    // Mermaid Gantt diagrams
+    &[mermaid-type="gantt"] {
+      // NOTE: Not the best, but I can't target with :nth-child(2n)
+      @for $i from 1 to 20 {
+        .section#{$i} {
+          @if $i % 2 == 0 {
+            fill: $accent-color;
+          } @else {
+            fill: transparent;
+          }
+        }
+      }
+
+      .task {
+        fill: $mermaid-task-fill;
+        stroke: $mermaid-task-border;
+
+        &[class*="done"] {
+          fill: $mermaid-task-done-fill;
+          stroke: $mermaid-task-done-border;
+        }
+
+        &[class*="active"] {
+          fill: $mermaid-task-active-fill;
+          stroke: $mermaid-task-active-border;
+        }
+
+        &[class*="crit"] {
+          fill: $mermaid-task-crit-fill;
+          stroke: $mermaid-task-crit-border;
+        }
+
+        &[class*="Crit"] {
+          stroke: $mermaid-task-crit-border;
+        }
+      }
+
+      text {
+        fill: $text-color;
+
+        &[class*="activeText"], &[class*="activeCritText"] {
+          fill: $text-color !important;
+          font-weight: bold;
+        }
+
+        &[class*="doneText"], &[class*="doneCritText"] {
+          fill: $md-char-color !important;
+        }
+      }
+
+      .grid .tick line {
+        stroke: $text-color;
+      }
+    }
+  }
+}
+
+// Modals
+.modal-content {
+  .modal-header, .modal-footer {
+    border-color: $md-char-color;
+  }
+
+  input, button.btn-default {
+    border-color: $md-char-color;
+  }
+
+  input {
+    background: transparent;
+  }
+}
+
+// Quick Open window
+#typora-quick-open {
+  top: 32px;
+  width: 40%;
+  min-width: 420px;
+  transform: translateX(-50%);
+  margin-left: 0;
+
+  .mac-seamless-mode & {
+    top: 50px;
+  }
+
+  #typora-quick-open-input input {
+    border-color: $primary-color;
+  }
+
+  .ty-quick-open-category-list-inner {
+    position: relative;
+  }
+
+  .ty-quick-open-category-title {
+    height: auto;
+    padding-top: 4px;
+    padding-left: 12px;
+  }
+
+  .typora-quick-open-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 2px;
+    cursor: pointer;
+
+    &:not(.active):hover {
+      background: $active-search-item-bg-color;
+    }
+    &.active:before {
+        content: '⟩';
+        position: absolute;
+        left: 8px;
+        font-weight: bold;
+        padding-bottom: 5px;
+    }
+  }
+
+  .typora-quick-open-item-path {
+    margin-top: -2px;
+  }
+}
+
+// Outline Dropdown (MacOS)
+#toc-dropmenu {
+  padding: .25em 0;
+  background: $bg-color;
+
+  // Disable the divider
+  .outline-title-divider {
+    display: none;
+  }
+}
+
+// Disable underlining in outline items
+.outline-label:hover {
+  text-decoration: none;
+}
+
+// Tooltips
+.ty-tooltip {
+  background: $tooltip-bg-color;
+  color: $tooltip-text-color;
+  border-color: $tooltip-border-color;
+}
+
+.code-tooltip.md-f-tooltip {
+  &, .md-arrow::after {
+    background: $footnote-tooltip-bg-color !important;
+    color: $footnote-tooltip-text-color !important;
+  }
+
+  a {
+    color: $link-color;
+  }
+}
+
+// Focus mode
+.on-focus-mode {
+  .md-end-block:not(.md-focus):not(.md-focus-container) {
+    &, *, ol, ul {
+      color: $md-char-color !important;
+    }
+
+    img, .md-footnote, .md-emoji {
+      opacity: .5;
+    }
+
+    mark {
+      background: $accent-color;
+    }
+  }
+
+  blockquote .md-end-block:not(.md-focus):not(.md-focus-container)::before {
+    opacity: .5;
+  }
+
+  li:not(.md-focus-container)::before {
+    opacity: .5;
+  }
+}
+
+// Sidebar
+#typora-sidebar {
+  border-right: 1px solid $sidebar-border-color;
+
+  .sidebar-tabs {
+    font-family: unquote($header-font);
+    border-bottom: 1px solid $sidebar-border-color;
+  }
+
+  .file-list-item-file-name {
+    font-family: unquote($header-font);
+    font-size: 1.2em;
+  }
+
+  // Search
+  #file-library-search-input {
+    background: $sidebar-bg-color;
+  }
+
+  #file-library-search {
+    .file-list-item-file-name {
+      font-size: 1.1rem;
+    }
+
+    .ty-search-item.active {
+      background: $active-search-item-bg-color;
+    }
+  }
+
+  .file-list-item-summary,
+  .ty-search-item-line {
+    font-family: unquote($paragraph-font);
+  }
+
+  .ty-file-search-match-text,
+  .ty-outline-hit {
+    font-weight: bold;
+    background: transparent;
+  }
+
+  // Outline
+  #outline-content {
+    line-height: 1.4em;
+
+    .outline-h1 > .outline-item {
+      font-family: unquote($header-font);
+    }
+
+    @for $i from 1 through 6 {
+      .outline-h#{$i} > .outline-item {
+        padding-left: .75em * ($i - 1);
+      }
+    }
+
+    .outline-item:hover {
+      background: $sidebar-bg-hover-color;
+    }
+  }
+
+  .outline-title-wrapper,
+  .outline-item-wrapper.outline-h1 > .outline-item {
+    font-family: unquote($header-font);
+  }
+
+  // Node/Item
+  .file-library-node,
+  .file-library-node .file-node-background {
+    transition: background .4s;
+  }
+
+  .file-tree-node {
+    padding-left: .75em;
+
+    i, span {
+      vertical-align: middle;
+    }
+
+    .file-node-icon, .file-node-title {
+      margin-left: 2px;
+    }
+
+    .file-tree-node:not(.file-library-file-node) {
+      & > .file-node-content {
+        font-style: italic;
+      }
+    }
+
+    &.file-node-root > .file-node-content {
+      font-weight: bold;
+      font-style: italic;
+    }
+  }
+
+  .file-tree-node.file-library-file-node:not(.active):hover .file-node-background,
+  .file-list-item.file-library-node:not(.active):hover {
+    background: $sidebar-bg-hover-color;
+  }
+
+  .file-tree-node.file-library-file-node.active .file-node-background,
+  .file-list-item.file-library-file-node.active {
+    border-left: 5px solid $primary-color;
+  }
+
+  // Remove blinking animation when updating filename
+  .blink-area { animation: none; }
+
+  // Footer
+  #ty-sidebar-footer {
+    border-top: 1px solid $sidebar-border-color;
+
+    .sidebar-footer-item {
+      transition: background .3s;
+
+      &:hover {
+        background: $sidebar-bg-hover-color;
+      }
+    }
+
+    // Files menu
+    #sidebar-files-menu {
+      .menuitem-group-label {
+        font-style: italic;
+      }
+
+      .show + .menuitem-group-label.show {
+        border-color: $files-menu-hover-color;
+      }
+
+      li > a:hover {
+        background: $files-menu-hover-color;
+      }
+
+      .ty-side-sort-btn {
+        cursor: pointer;
+
+        &.active, &:hover {
+          color: $primary-color;
+        }
+
+        &.active {
+          background: $active-file-bg-color;
+        }
+      }
+    }
+  }
+}
+
+// Windows-specific context, buttons, and dropdowns
+.dropdown-menu:not(.megamenu-menu-list):not(#sidebar-files-menu) {
+  background: $dropdown-bg-color;
+  color: $text-color;
+
+  .divider {
+    border-color: $dropdown-divider-color;
+  }
+
+  .active a,
+  .has-extra-menu.active a {
+    background: $dropdown-hover-bg-color !important;
+  }
+
+  .has-btn-submenu .menu-style-btn.active {
+    background: $text-color;
+    color: $dropdown-bg-color;
+    cursor: pointer;
+  }
+}
+
+#footer-word-count-info .ty-footer-word-count-all tr:hover,
+#ty-spell-check-dict-missing-menu li:hover {
+  background: $dropdown-hover-bg-color !important;
+}
+
+.ty-spell-check-panel-item {
+  &.ty-active,
+  &:hover {
+    background: $dropdown-hover-bg-color !important;
+  }
+}
+
+.btn-default:hover {
+  background: $accent-color;
+}
+
+// Windows Unibody
+footer.ty-footer {
+  border-top: 0;
+}
+
+.typora-sourceview-on #toggle-sourceview-btn {
+  background: $bg-color;
+}
+
+.footer-item:hover {
+  background: $footer-hover-color !important;
+}
+
+#outline-btn:hover {
+  color: inherit;
+}
+
+.form-control:focus {
+  border-color: $primary-color;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 2px $primary-color;
+}
+
+// Windows Unibody megamenu
+.megamenu-opened header {
+  background-image: none;
+}
+
+#top-titlebar {
+  &, * {
+    color: inherit;
+  }
+}
+
+#megamenu-content {
+  padding-top: 28px;
+  background: $megamenu-bg-color;
+  color: $megamenu-text-color;
+
+  .long-btn {
+    border-color: $megamenu-button-border-color;
+    transition: border-color .4s;
+
+    &:hover {
+      border-color: $primary-color;
+      background: $megamenu-hover-bg-color;
+      color: $item-hover-text-color !important;
+    }
+  }
+}
+
+#megamenu-menu-panel:not(:first-of-type) {
+  margin-top: 48px;
+}
+
+#recent-file-panel-action-btn {
+  background: inherit;
+  border-color: $megamenu-button-border-color;
+  transition: all .4s;
+
+  &:hover {
+    border-color: $primary-color;
+    background: $megamenu-hover-bg-color;
+    color: $item-hover-text-color;
+  }
+}
+
+#recent-document-table {
+  background-color: inherit;
+}
+
+#recent-file-panel tbody tr {
+  &:nth-child(2n-1) {
+    background-color: inherit;
+  }
+
+  &:hover {
+    background-color: $megamenu-hover-bg-color !important;
+  }
+
+  &:hover td:nth-child(1) {
+    color: $item-hover-text-color;
+  }
+}
+
+// Windows Unibody sidebar
+#megamenu-menu-sidebar {
+  background-color: $megamenu-sidebar-bg-color;
+  color: $text-color;
+}
+
+.megamenu-menu-header,
+.megamenu-menu-list li:not(.saved) a {
+  transition: all .4s;
+}
+
+.megamenu-menu-header {
+  border-bottom: 1px solid $active-file-bg-color;
+
+  &:hover {
+    background: $megamenu-sidebar-hover-bg-color;
+  }
+}
+
+.megamenu-menu-list li {
+  &:not(.saved) a:not(.active):hover,
+  a.active {
+    background: $megamenu-sidebar-active-bg-color !important;
+  }
+}
+
+#m-saved {
+  background: inherit;
+  color: inherit;
+}
+
+#megamenu-menu-list {
+  margin: 0;
+}
+
+.theme-preview-div {
+  transition: all .4s;
+
+  &:hover {
+    border: 4px solid $primary-btn-border-color;
+  }
+
+  &.active,
+  &.active:hover {
+    border: 4px solid $primary-color;
+  }
+
+  &.active i {
+    color: $primary-color;
+  }
+}
+
+// Windows preferences window
+.ty-preferences {
+  // Window
+  .window {
+    background: $megamenu-bg-color;
+  }
+
+  // Navbar items
+  .nav-group-item {
+    background: transparent;
+    color: $megamenu-text-color;
+    cursor: pointer;
+
+    &:not(.active):hover {
+      background: $megamenu-hover-bg-color;
+      color: inherit;
+    }
+
+    &:active,
+    &.active {
+      background: $megamenu-active-bg-color;
+      color: inherit;
+    }
+  }
+
+  // Buttons
+  .btn-default {
+    background: transparent;
+    color: inherit;
+    border-color: $megamenu-button-border-color;
+    cursor: pointer;
+
+    &:hover {
+      border-color: $primary-color;
+      background: $megamenu-hover-bg-color !important;
+      color: $item-hover-text-color;
+    }
+
+    &:active,
+    &.active {
+      background: $megamenu-active-bg-color;
+    }
+  }
+
+  // Dropdown lists
+  select,
+  ul.dropdown-menu {
+    border-color: $megamenu-button-border-color;
+    background: $megamenu-bg-color;
+  }
+
+  ul.dropdown-menu li {
+    background: $megamenu-bg-color;
+
+    &:hover {
+      background: $megamenu-hover-bg-color;
+    }
+  }
+}
+
+// Source Code mode
+.cm-s-typora-default .cm-s-inner.CodeMirror-line {
+  border: 0 !important;
+}
+
+// Empty file splashscreen
+#write > p {
+  &:first-child:empty {
+    position: static;
+  }
+
+  &:only-child:empty::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('ursine/night.png') no-repeat 45% 90% transparent;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+  }
+}
+
+// Print/Export to PDF/HTML
+@media print {
+  #write {
+    ol > li,
+    ul > li {
+      color: $text-color;
+    }
+
+    // Fix for bold font in lists
+    ol, ul {
+      > li {
+        color: $text-color;
+
+        > strong > *, > b > * {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

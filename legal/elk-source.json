@@ -1,0 +1,18 @@
+{
+  "package": "elkjs",
+  "version": "0.9.3",
+  "license": "EPL-2.0",
+  "commit": "a8304cf79fde75bc2ab1a89d28320f53f8637436",
+  "archiveURL": "https://codeload.github.com/kieler/elkjs/tar.gz/a8304cf79fde75bc2ab1a89d28320f53f8637436",
+  "archiveFile": "elkjs-a8304cf79fde75bc2ab1a89d28320f53f8637436.tar.gz",
+  "archiveSHA256": "850418c89dd35dbd94ea0100a7becbc09d320c153fda4c4ea4a88c67e12121a9",
+  "repository": "https://github.com/kieler/elkjs/tree/a8304cf79fde75bc2ab1a89d28320f53f8637436",
+  "preferredSourceStatus": "elkjs-wrapper-and-build-scripts-archived; upstream-ELK-Java-revision-unverified",
+  "elkJavaRevision": null,
+  "verifiedDate": "2026-10-26",
+  "bundledFile": {
+    "path": "lib/elk.bundled.js",
+    "gitBlobSHA1": "5e77ca50087cf50f52eeb732490fbe33d9eaf8c8",
+    "sha256": "b0745abd7f23cd91690a1587e377edbe19fd7233c783300290936720546216d4"
+  }
+}

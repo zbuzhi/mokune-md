@@ -1,0 +1,57 @@
+import assert from 'node:assert/strict';
+import {createRequire} from 'node:module';
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+const require=createRequire(import.meta.url),{chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+const browser=await chromium.launch({headless:true,...(process.env.CHROME_EXECUTABLE?{executablePath:process.env.CHROME_EXECUTABLE}:{})});
+try {
+ const page=await browser.newPage({viewport:{width:1440,height:1100}}),errors=[],checks=[],network=[];
+ page.on('pageerror',error=>errors.push(error.message));page.on('request',request=>{if(!request.url().startsWith('http://127.0.0.1:4173/'))network.push(request.url());});
+ await page.addInitScript(()=>{window.__messages=[];window.webkit={messageHandlers:{mokune:{postMessage:message=>window.__messages.push(message)}}};});
+ await page.goto('http://127.0.0.1:4173/dist/web/');await page.waitForFunction(()=>window.mokune);
+ const snapshot=()=>page.evaluate(()=>window.mokune.snapshot());
+ const load=raw=>page.evaluate(raw=>window.mokune.receive({type:'load',raw,name:'科学写作.md',hasPath:true}),raw);
+ const source=()=>page.locator('#source-mode').click(),live=()=>page.locator('#live-mode').click();
+ const composition=type=>page.evaluate(type=>document.querySelector('.cm-content').dispatchEvent(new CompositionEvent(type,{bubbles:true})),type);
+ assert.equal(await page.locator('script[src$="mermaid-engine.js"]').count(),0);assert.equal(await page.locator('script[src$="math-engine.js"]').count(),0);checks.push('plain documents do not load scientific renderer JavaScript');
+ const fixture=await readFile('tests/fixtures/scientific.md','utf8');await load(fixture);
+ await page.locator('.md-math-inline.preview-ready').first().waitFor();
+ await page.locator('[data-kind="mermaid"].preview-ready').first().waitFor({timeout:30000});
+ await page.locator('.cm-scroller').evaluate(el=>el.scrollTop=el.scrollHeight);await page.locator('[data-kind="mermaid"].preview-ready').nth(1).scrollIntoViewIfNeeded();await page.locator('[data-kind="mermaid"].preview-ready').nth(1).waitFor();
+ assert.equal(await page.locator('[data-kind="mermaid"] svg').count(),2);assert.equal(await page.locator('.md-math-inline.preview-ready').count(),2);
+ assert.ok(await page.locator('.katex-mathml math').count()>0);assert.equal((await snapshot()).raw,fixture);checks.push('inline math, aligned display math, Chinese flowchart and sequence diagram render with source intact');
+ assert.equal(await page.locator('[data-kind="mermaid"] foreignObject').count(),0);checks.push('Mermaid labels render as SVG text without foreignObject');
+ await page.locator('.md-math-inline').first().click();assert.equal((await snapshot()).selection.ranges[0].anchor,fixture.indexOf('E = mc^2'));
+ await page.locator('.md-scientific-preview[data-kind="math"] .katex').first().waitFor();
+ await page.keyboard.insertText('中文');await page.evaluate(()=>window.mokune.receive({type:'action',action:'undo'}));assert.equal((await snapshot()).raw,fixture);checks.push('formula click restores exact source position and undo restores original Markdown');
+ await page.locator('[data-kind="mermaid"] button').first().click();assert.equal((await snapshot()).selection.ranges[0].anchor,fixture.indexOf('flowchart LR'));checks.push('diagram edit button returns to first source line');
+ const before=(await snapshot()).selection;await source();assert.equal(await page.locator('.md-scientific-preview').count(),0);await live();assert.deepEqual((await snapshot()).selection,before);assert.equal((await snapshot()).raw,fixture);checks.push('mode toggle retains source, selection and history');
+ await page.locator('[data-kind="mermaid"].preview-ready').first().waitFor();
+ await page.evaluate(()=>{window.__diagram=document.querySelector('[data-kind="mermaid"]');window.__messages=[];});
+ await composition('compositionstart');await page.keyboard.insertText('输入法');
+ await page.waitForTimeout(260);assert.equal(await page.evaluate(()=>window.__diagram===document.querySelector('[data-kind="mermaid"]')),true);
+ assert.equal((await snapshot()).composing,true);assert.equal(await page.evaluate(()=>window.__messages.filter(m=>['save','draft'].includes(m.command)).length),0);
+ await page.evaluate(()=>window.mokune.receive({type:'action',action:'format',name:'bold'}));assert.ok(!(await snapshot()).raw.includes('**输入法'));checks.push('diagram DOM, source editing and save suppression stay stable during composition');
+ await composition('compositionend');await page.waitForTimeout(90);await page.evaluate(()=>window.mokune.receive({type:'action',action:'undo'}));assert.equal((await snapshot()).raw,fixture);
+ // The engine resolves while composition is active: asynchronous completion must not paint.
+ await load('# 等待\n\n$$x^2$$\n');await page.evaluate(()=>{window.__mathRender=window.mokuneMath.render;window.__resolveMath=null;window.mokuneMath.render=()=>new Promise(resolve=>window.__resolveMath=resolve);});
+ await load('# 等待\n\n$$q_{async}=42$$\n');await page.waitForFunction(()=>window.__resolveMath);await composition('compositionstart');
+ await page.evaluate(()=>{const el=document.createElement('span');el.className='async-finished';el.textContent='42';window.__resolveMath(el);});await page.waitForTimeout(150);assert.equal(await page.locator('.async-finished').count(),0);
+ await composition('compositionend');await page.locator('.async-finished').waitFor();await page.evaluate(()=>window.mokuneMath.render=window.__mathRender);checks.push('async completion waits until the candidate composition has ended');
+ await load('# 排除\n\n`$inline$`\n\n```js\nconst s = "$code$";\n```\n\n价格 $5 和 $10\n\n\\$escaped$\n');await page.waitForTimeout(300);assert.equal(await page.locator('[data-kind="math"]').count(),0);checks.push('code, escaped currency and ordinary prices remain literal');
+ await load('# 其他定界符\n\n\\(a+b\\)\n\n\\[\n\\int_0^1 x\\,dx\n\\]\n\n```math\nx^2+y^2=z^2\n```\n');await page.waitForFunction(()=>document.querySelectorAll('[data-kind="math"].preview-ready').length===3);checks.push('parenthesis/bracket delimiters and math fences render');
+ await load('# 错误\n\n$$\\invalidcommand{x}$$\n\n```mermaid\nflowchart LR\nA[unfinished\n```\n');await page.locator('[data-kind="math"].preview-error').waitFor();await page.locator('[data-kind="mermaid"].preview-error').waitFor();assert.ok((await snapshot()).raw.includes('\\invalidcommand'));checks.push('invalid formulas and diagrams show local errors without modifying source');
+ await load('# 安全\n\n$$\\href{javascript:alert(1)}{X} + \\includegraphics{https://example.com/secret.png}$$\n\n```mermaid\nflowchart LR\nA["<img src=https://example.com/leak.png onerror=alert(1)>"] --> B[普通节点]\nclick B "https://example.com/click"\n```\n');await page.waitForTimeout(1000);assert.equal(await page.locator('.md-scientific-preview a,.md-scientific-preview image,.md-scientific-preview img,.md-scientific-preview foreignObject').count(),0);assert.deepEqual(network,[]);checks.push('untrusted math commands and diagram HTML/clicks do not execute or request the network');
+ await load('# 配置\n\n```mermaid\n%%{init: {securityLevel: "loose"}}%%\nflowchart LR\nA-->B\n```\n');await page.locator('[data-kind="mermaid"].preview-error').waitFor();checks.push('document-owned Mermaid config cannot override the application security settings');
+ await load('# 图表资源\n\n```mermaid\nflowchart LR\nA-->B\nstyle A fill:url(https://example.com/style-leak.svg)\n```\n');await page.locator('[data-kind="mermaid"].preview-error').waitFor();assert.deepEqual(network,[]);checks.push('asset-bearing diagram input is rejected before Mermaid creates its temporary SVG');
+ const mixed='\uFEFF# 原样保存\r\n\r\n公式 $x^2$  \r\n\n```mermaid\r\nflowchart LR\nA-->B\r\n```\r';await load(mixed);await page.locator('[data-kind="mermaid"].preview-ready').waitFor();
+ await page.locator('#appearance-toggle').click();await page.locator('[data-theme="polar"]').click();await page.locator('#appearance-close').click();await page.locator('[data-kind="mermaid"].preview-ready').waitFor();assert.equal((await snapshot()).raw,mixed);
+ await page.evaluate(()=>{window.__messages=[];window.mokune.receive({type:'action',action:'save'});});assert.equal(await page.evaluate(()=>window.__messages.find(m=>m.command==='save').raw),mixed);checks.push('theme switch and native save preserve BOM, mixed EOL, trailing spaces and original syntax exactly');
+ await load('# 长片段\n\n$$'+ 'x'.repeat(8001)+'$$\n');await page.locator('[data-kind="math"].preview-error').waitFor();checks.push('oversized input stays editable without entering the renderer');
+ // Switching documents while an old renderer resolves cannot attach stale content.
+ await load('# 旧文稿\n\n$$z_{old}=72$$\n');await load('# 新文稿\n\n普通中文');await page.waitForTimeout(400);assert.equal(await page.locator('[data-kind]').count(),0);checks.push('document replacement cancels detached render work');
+ await load(fixture);await page.locator('[data-kind="mermaid"].preview-ready').first().waitFor();await page.locator('.cm-scroller').evaluate(el=>el.scrollTop=0);await page.waitForTimeout(100);
+ await mkdir('docs/design/implementation',{recursive:true});await page.screenshot({path:'docs/design/implementation/08-scientific-polar.png',fullPage:true});
+ await page.locator('#appearance-toggle').click();await page.locator('[data-theme="paper"]').click();await page.locator('#appearance-close').click();await page.locator('[data-kind="mermaid"].preview-ready').first().waitFor();await page.screenshot({path:'docs/design/implementation/09-scientific-paper.png',fullPage:true});
+ assert.deepEqual(network,[]);assert.deepEqual(errors,[]);checks.push('no remote requests or JavaScript runtime errors');
+ await writeFile('docs/SCIENTIFIC-TEST-RESULTS.json',JSON.stringify({checks,engine:'Chromium / Microsoft Edge',errors,network},null,2));console.log(`Scientific/browser checks passed: ${checks.length}`);
+} finally {await browser.close();}

@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "scope": "Engineering source-archive selection; not trademark or exclusive-rights clearance",
+  "files": [
+    {
+      "path": "assets/icons/Mokune.icns",
+      "sha256": "f65f14f48ccea5f0a7b20a3345bd84c487dccab20df5a119e22468884f70fe47",
+      "basis": "project-generated approved icon/provenance"
+    },
+    {
+      "path": "assets/icons/README.md",
+      "sha256": "366b25e27ac6bf663bbaa89d92c945c3cdcbe69e5e2cc926e835bcc7832ba9b4",
+      "basis": "project-generated approved icon/provenance"
+    },
+    {
+      "path": "assets/icons/liquid-glass/Mokune.icon/Assets/md-mark.svg",
+      "sha256": "bb93bfcf88584fd79c607072e1f14877c31b46fbefbe833cdc7240f5783d397b",
+      "basis": "project-generated approved icon/provenance"
+    },
+    {
+      "path": "assets/icons/liquid-glass/Mokune.icon/icon.json",
+      "sha256": "12587161749d69a4325579118469fb6c8fb931207e1e96ce6fbb39644e0c9ee7",
+      "basis": "project-generated approved icon/provenance"
+    },
+    {
+      "path": "assets/icons/liquid-glass/README.md",
+      "sha256": "beed66e0fb9c3556d226b7377ea3365f3dbf15a06a980a25c95b322abea54664",
+      "basis": "project-generated approved icon/provenance"
+    },
+    {
+      "path": "assets/icons/mokune-master.png",
+      "sha256": "3eb23e556cc7393a251cc3e6593076acdc1c956150416313568b649f8ea09254",
+      "basis": "project-generated approved icon/provenance"
+    },
+    {
+      "path": "assets/icons/original/Mokune.icon/Assets/approved-md7.png",
+      "sha256": "3eb23e556cc7393a251cc3e6593076acdc1c956150416313568b649f8ea09254",
+      "basis": "project-generated approved icon/provenance"
+    },
+    {
+      "path": "assets/icons/original/Mokune.icon/icon.json",
+      "sha256": "f9cd35a4dc7b07019587a6242f34f9443857a519d4e66463eb885f8db0995f8a",
+      "basis": "project-generated approved icon/provenance"
+    },
+    {
+      "path": "assets/icons/original/README.md",
+      "sha256": "39ecbf94d1b1944c54c59bd83709125948379b5cbbbe95666f45b1fd0f438a04",
+      "basis": "project-generated approved icon/provenance"
+    },
+    {
+      "path": "assets/icons/production-prompt.json",
+      "sha256": "9dd202f608da72c709882961a39b0c4bd98aa430a345af32cd3bd59de63c212f",
+      "basis": "project-generated approved icon/provenance"
+    },
+    {
+      "path": "assets/icons/provenance/MD7-unified.png",
+      "sha256": "a7bbb9e644168f3b6edb53249858cf8ab4f5fe33d1724e83ca1dabfa60754fc9",
+      "basis": "project-generated approved icon/provenance"
+    },
+    {
+      "path": "docs/screenshots/editor-light.png",
+      "sha256": "830fcf0c3eff7ef9d842edf682a4ddec980f443ad971a2173b39a9b2b3226536",
+      "basis": "Actual local editor render with self-authored synthetic notes; no personal documents or accounts"
+    },
+    {
+      "path": "docs/screenshots/editor-dark.png",
+      "sha256": "6bbddd59e3eb7142831e20e0da86b83ee29510e2ed841ea5e9dde86b9dcb31fa",
+      "basis": "Actual local editor render with self-authored synthetic notes; no personal documents or accounts"
+    }
+  ]
+}

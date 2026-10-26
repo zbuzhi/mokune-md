@@ -1,0 +1,7 @@
+{
+  "tool": "built-in image_gen",
+  "reference": "provenance/MD7-unified.png",
+  "prompt": "Use case: background-extraction. Input image 1 is the approved final Mokune icon. Prepare production transparent app icon: remove ONLY the pale warm gray exterior studio backdrop outside the charcoal rounded-square tile, replacing exterior with genuine alpha transparency. Keep the entire charcoal tile opaque including its corners and all interior black regions and D counter. Preserve EXACTLY the approved unified pale sage-white MD ligature geometry, color, material, scale, position, lighting and tile silhouette. No green square accent. Preserve framing and padding. Clean antialiased cutout edge, no pale halo or ground shadow outside tile, transparent margin. Do not redesign anything or add any symbols. One square image.",
+  "historicalReference": "design/icons/round-05-md7/MD7-unified.png",
+  "referenceSHA256": "a7bbb9e644168f3b6edb53249858cf8ab4f5fe33d1724e83ca1dabfa60754fc9"
+}

@@ -1,0 +1,1 @@
+export function imageMarkdown(name,reference){if(!reference.startsWith('assets/')||/[\r\n\0]/.test(reference))throw new Error('图片路径无效');const alt=name.replace(/[\\\[\]]/g,'\\$&').replace(/[\r\n]/g,' ');return `![${alt}](${reference})`;}

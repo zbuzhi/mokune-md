@@ -1,0 +1,2 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {collectTasks,taskAt} from '../src/web/task-model.mjs';
+test('tasks are parsed from Markdown lists, excluding code and literal text',()=>{const text='- [ ] 中文\n  - [X] nested\n\n```\n- [ ] code\n```\n\n[ ] literal\n';const tasks=collectTasks(text);assert.equal(tasks.length,2);assert.equal(tasks[0].from,2);assert.equal(tasks[1].checked,true);assert.equal(taskAt(text,3).title,'中文');assert.equal(taskAt(text,text.indexOf('literal')),undefined);});

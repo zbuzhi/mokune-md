@@ -1,0 +1,5 @@
+{
+  "build": 30,
+  "bundleIdentifier": "local.mokune.editor",
+  "minimumSystemVersion": "13.3"
+}

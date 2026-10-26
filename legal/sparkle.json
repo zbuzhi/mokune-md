@@ -1,0 +1,10 @@
+{
+  "name": "Sparkle",
+  "version": "2.10.1",
+  "repository": "https://github.com/sparkle-project/Sparkle",
+  "archiveURL": "https://github.com/sparkle-project/Sparkle/releases/download/2.10.1/Sparkle-2.10.1.tar.xz",
+  "archiveSHA256": "1a856d2a9edb8e628de88121d7be04cf0e2167f8641650b78fca00b14244cf27",
+  "licenseFile": "licenses/Sparkle-2.10.1.txt",
+  "scope": "Native framework and embedded updater helpers; included by the standard macOS build. Full upstream notices, including embedded components, are retained.",
+  "licenseSHA256": "389a4e4e9a32f059775b13a06e25a591445ba229d2838d26dd3e7c0c45127cfe"
+}

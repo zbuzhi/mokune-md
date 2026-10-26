@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="440" viewBox="0 0 960 440">
+  <rect width="960" height="440" fill="#edf2ee"/>
+  <path d="M0 330 Q240 210 480 330 T960 330 V440 H0Z" fill="#dbe6dd"/>
+  <text x="70" y="88" fill="#466b60" font-family="sans-serif" font-size="18" letter-spacing="4">MOKUNE / LOCAL FIRST</text>
+  <text x="70" y="145" fill="#28352d" font-family="sans-serif" font-size="36">Your words. Your files.</text>
+  <rect x="70" y="205" width="220" height="98" rx="10" fill="#fcfcfa" stroke="#becdc1"/>
+  <rect x="370" y="205" width="220" height="98" rx="10" fill="#fcfcfa" stroke="#becdc1"/>
+  <rect x="670" y="205" width="220" height="98" rx="10" fill="#fcfcfa" stroke="#becdc1"/>
+  <path d="M306 254 H352 M340 244 L352 254 L340 264 M606 254 H652 M640 244 L652 254 L640 264" fill="none" stroke="#466b60" stroke-width="3"/>
+  <g fill="#28352d" font-family="monospace" font-size="21" text-anchor="middle"><text x="180" y="264">Markdown</text><text x="480" y="264">Live preview</text><text x="780" y="264">Original .md</text></g>
+  <text x="70" y="383" fill="#466b60" font-family="sans-serif" font-size="16">A project-owned SVG fixture. No remote assets.</text>
+</svg>

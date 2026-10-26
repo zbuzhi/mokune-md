@@ -1,0 +1,12 @@
+import {readFile} from 'node:fs/promises';
+import {createPublicKey,verify} from 'node:crypto';
+import {validateUpdateConfig} from './lib/update-config.mjs';
+const config=validateUpdateConfig(JSON.parse(await readFile('update.config.json','utf8')));
+if(!config)throw Error('Update configuration is disabled');
+const bytes=await readFile(process.argv[2]||'updates/appcast.xml'),text=bytes.toString('utf8');
+const match=text.match(/<!-- sparkle-signatures:\s*edSignature: ([A-Za-z0-9+/=]+)\s*length: (\d+)\s*-->\s*$/);
+if(!match)throw Error('Missing Sparkle feed signature');
+const length=Number(match[2]);if(length!==Buffer.byteLength(text.slice(0,match.index)))throw Error('Feed signature boundary differs from declared length');
+const key=createPublicKey({key:Buffer.concat([Buffer.from('302a300506032b6570032100','hex'),Buffer.from(config.publicKey,'base64')]),format:'der',type:'spki'});
+if(!verify(null,bytes.subarray(0,length),key,Buffer.from(match[1],'base64')))throw Error('Invalid update feed signature');
+console.log('Verified signed update feed with public key only. No private-key access.');

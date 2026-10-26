@@ -1,0 +1,17 @@
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {elkSourceReviewRecorded} from './lib/elk-source-review.mjs';
+import {digest} from './lib/dependency-inventory.mjs';
+const inventory=JSON.parse(await readFile('legal/dependencies.json','utf8')),graphs=JSON.parse(await readFile('.build/bundle-inputs.json','utf8'));
+if(digest(await readFile('package.json'))!==inventory.packageManifestSHA256||digest(await readFile('pnpm-lock.yaml'))!==inventory.lockSHA256||digest(await readFile('.build/bundle-inputs.json'))!==inventory.graphsSHA256)throw Error('Stale dependency inventory: rebuild and regenerate notices');
+const sparkle=JSON.parse(await readFile('legal/sparkle.json','utf8'));if(digest(await readFile(sparkle.licenseFile))!==sparkle.licenseSHA256)throw Error('Sparkle notices changed without review');
+const themes=JSON.parse(await readFile('legal/theme-provenance.json','utf8'));
+for(const theme of themes)for(const file of theme.files)if(digest(await readFile(`vendor/themes/${theme.id}/${file.path}`))!==file.sha256)throw Error(`Theme evidence drift: ${theme.id}/${file.path}`);
+const source=JSON.parse(await readFile('legal/elk-source.json','utf8')),elk=inventory.packages.find(p=>p.name==='elkjs'&&p.bundles.length),inputs=Object.values(graphs).flatMap(graph=>Object.keys(graph.inputs)).filter(file=>file.includes('/elkjs/'));
+if(!/^[a-f0-9]{40}$/.test(source.commit)||source.archiveFile!==`elkjs-${source.commit}.tar.gz`||source.archiveURL!==`https://codeload.github.com/kieler/elkjs/tar.gz/${source.commit}`)throw Error('Invalid pinned ELK source archive metadata');
+if(elk){if(elk.version!==source.version||digest(await readFile(inputs[0]))!==source.bundledFile.sha256)throw Error('ELK source/bundle version or hash drift');}
+const fontCount=JSON.parse(await readFile('legal/sbom.cdx.json','utf8')).components.filter(c=>c['bom-ref'].startsWith('font:')).length;if(fontCount!==20)throw Error('Embedded font inventory incomplete');
+if(!(await readFile('SOURCE_AVAILABILITY.md','utf8')).includes(source.archiveSHA256))throw Error('Source availability notice does not match archived evidence');
+let javaNoticeHash=null;try{javaNoticeHash=digest(await readFile('legal/elk-java-build-inputs.md'));}catch(error){if(error.code!=='ENOENT')throw error;}const javaReviewed=elkSourceReviewRecorded(source,javaNoticeHash);
+const binaryBlockers=[];if(elk&&!javaReviewed)binaryBlockers.push('ELK preferred Java source revision and build-input correspondence remain unverified');
+const report={scope:'All production esbuild graphs plus installed locked package licenses, theme byte provenance and embedded fonts; not a legal clearance',engineeringChecksPassed:true,nativeUpdater:{name:sparkle.name,version:sparkle.version,fullNoticesVerified:true},installedPackages:inventory.packages.length,runtimePackages:inventory.packages.filter(p=>p.bundles.length).length,embeddedFonts:fontCount,themes:themes.length,dompurifyLicenseChoice:'Apache-2.0',elkjs:{version:source.version,bundled:!!elk,wrapperCommit:source.commit,npmArtifactMatched:true,preferredJavaSourceReviewRecorded:javaReviewed},publicBinarySourceReviewPassed:binaryBlockers.length===0,binaryBlockers};
+await mkdir('output',{recursive:true});await writeFile('output/license-audit.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));if(process.argv.includes('--public-binary')&&binaryBlockers.length)process.exitCode=1;

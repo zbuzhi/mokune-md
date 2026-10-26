@@ -1,0 +1,88 @@
+[
+  {
+    "id": "ursine",
+    "repository": "https://github.com/noatpad/typora-theme-ursine",
+    "revision": "de3c1d696e4353f6549ab3dfc7718d1cd8c92e0c",
+    "license": "MIT",
+    "files": [
+      {
+        "path": "LICENSE",
+        "url": "https://raw.githubusercontent.com/noatpad/typora-theme-ursine/de3c1d696e4353f6549ab3dfc7718d1cd8c92e0c/LICENSE",
+        "sha256": "98a3f849e0191aa9d0eb26ba64d6e5bc20953eb71cd349df298d1001a67be83b"
+      },
+      {
+        "path": "ursine-polar.scss",
+        "url": "https://raw.githubusercontent.com/noatpad/typora-theme-ursine/de3c1d696e4353f6549ab3dfc7718d1cd8c92e0c/ursine-polar.scss",
+        "sha256": "d1f90ab04f2d8f425cf53226d748b35cb923e5c0b615be69d2b4a4698b534e2d"
+      },
+      {
+        "path": "ursine-umbra.scss",
+        "url": "https://raw.githubusercontent.com/noatpad/typora-theme-ursine/de3c1d696e4353f6549ab3dfc7718d1cd8c92e0c/ursine-umbra.scss",
+        "sha256": "96d37fc6b149acaddf53f49d2090c4567ee6aaa56223484bbb1cc7f5f36f11cb"
+      }
+    ],
+    "verifiedDate": "2026-10-26"
+  },
+  {
+    "id": "dracula",
+    "repository": "https://github.com/dracula/typora",
+    "revision": "61a9edea74b2c25de27b0a720194c7ebdd147b0c",
+    "license": "MIT",
+    "files": [
+      {
+        "path": "LICENSE",
+        "url": "https://raw.githubusercontent.com/dracula/typora/61a9edea74b2c25de27b0a720194c7ebdd147b0c/LICENSE",
+        "sha256": "5b9b81dd8a2d738be1d55115b89541e9f3ad0494fb0e91ba382e7cf81b4191a1"
+      },
+      {
+        "path": "dracula.css",
+        "url": "https://raw.githubusercontent.com/dracula/typora/61a9edea74b2c25de27b0a720194c7ebdd147b0c/dracula.css",
+        "sha256": "070a5630a8f9a39da441b2b7914954bd63c1e4975e49ee9c1227b8a27a631245"
+      }
+    ],
+    "verifiedDate": "2026-10-26"
+  },
+  {
+    "id": "drake",
+    "repository": "https://github.com/liangjingkanji/DrakeTyporaTheme",
+    "revision": "771df28080610cf6b0bd5f6f0c1864efa2d9a41e",
+    "license": "MIT",
+    "files": [
+      {
+        "path": "LICENSE",
+        "url": "https://raw.githubusercontent.com/liangjingkanji/DrakeTyporaTheme/771df28080610cf6b0bd5f6f0c1864efa2d9a41e/LICENSE",
+        "sha256": "e898849bad58ec301c6fe47e6a91b6d6ca87e47691c35b3746af3d10897a1452"
+      },
+      {
+        "path": "drake-google.css",
+        "url": "https://raw.githubusercontent.com/liangjingkanji/DrakeTyporaTheme/771df28080610cf6b0bd5f6f0c1864efa2d9a41e/drake-google.css",
+        "sha256": "6cff62e4fa5ae1283423e2a915bd0952efe26e4190720c7a1d6c2259b078ad5c"
+      },
+      {
+        "path": "drake.css",
+        "url": "https://raw.githubusercontent.com/liangjingkanji/DrakeTyporaTheme/771df28080610cf6b0bd5f6f0c1864efa2d9a41e/drake.css",
+        "sha256": "85bc97fc87b43c5e79dabdd33b26ff2fceed96d16b72f388322c79e3bb64dc43"
+      }
+    ],
+    "verifiedDate": "2026-10-26"
+  },
+  {
+    "id": "catppuccin",
+    "repository": "https://github.com/catppuccin/palette",
+    "revision": "07d02aa110ef9eb7e7427afca5c73ba9cf7f8ebd",
+    "license": "MIT",
+    "files": [
+      {
+        "path": "LICENSE",
+        "url": "https://raw.githubusercontent.com/catppuccin/palette/07d02aa110ef9eb7e7427afca5c73ba9cf7f8ebd/LICENSE",
+        "sha256": "814096d2c34cc216c624738a49356f32b7237733b4f7edb0685f4e50ef5074ba"
+      },
+      {
+        "path": "palette.json",
+        "url": "https://raw.githubusercontent.com/catppuccin/palette/07d02aa110ef9eb7e7427afca5c73ba9cf7f8ebd/palette.json",
+        "sha256": "4bc114bb6b3c9a9c9e156564aa84625aef32c5da514d9dd431cf1fcad433a05f"
+      }
+    ],
+    "verifiedDate": "2026-10-26"
+  }
+]

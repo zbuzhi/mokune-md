@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {textStats} from '../src/web/text-stats.mjs';
+test('statistics retain raw byte counts, mixed line endings, Unicode words and grapheme characters',()=>{const raw='\ufeff你好 world\r\n👨‍👩‍👧‍👦 é\r';const result=textStats(raw);assert.deepEqual(result,{words:4,characters:9,lines:3,bytes:new TextEncoder().encode(raw).length,minutes:1});assert.deepEqual(textStats(''),{words:0,characters:0,lines:1,bytes:0,minutes:0});});

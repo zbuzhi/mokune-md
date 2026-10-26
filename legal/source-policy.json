@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "documentation": [
+    "ARCHITECTURE.md",
+    "AUTO-UPDATE-PLAN.md",
+    "BUILDING.md",
+    "CALLOUTS.md",
+    "CONFLICT-MERGE.md",
+    "DAILY-WORKFLOW.md",
+    "EDITING.md",
+    "EXPORT.md",
+    "EXTENDED-MARKDOWN.md",
+    "MARKDOWN-COVERAGE.md",
+    "MULTITAB.md",
+    "NAVIGATION.md",
+    "RELEASE-LEGAL-REVIEW.md",
+    "RELEASING.md",
+    "RESOURCES.md",
+    "SCIENTIFIC-PREVIEW.md",
+    "SESSION-AND-LINKS.md",
+    "SHORTCUTS.md",
+    "TABLE-RANGE.md",
+    "TABLE-TRANSFER.md",
+    "THEMES.md",
+    "UPDATE-010.md",
+    "VALIDATION.md",
+    "VISUAL-EDITING.md"
+  ],
+  "localOnlyScripts": [
+    "scripts/render-design.mjs",
+    "scripts/summarize-performance.mjs"
+  ],
+  "note": "Public source selection. Raw test reports, internal planning/name research and unused design drafts remain local. Source, tests, build/update scripts, production icon variants and license evidence remain public."
+}

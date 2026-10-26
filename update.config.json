@@ -1,0 +1,7 @@
+{
+  "enabled": true,
+  "feedURL": "https://raw.githubusercontent.com/zbuzhi/mokune-md/main/updates/appcast.xml",
+  "publicKey": "+o5StZnz/1hvgEJJQxJY0gROYRTroFhuq7H9HZo0SNU=",
+  "keychainAccount": "mokune-md.zbuzhi",
+  "note": "Public verification key only. Private signing key remains in the macOS login Keychain. Feed starts empty; signed update items are added only after a separately authorized binary release."
+}

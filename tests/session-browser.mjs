@@ -1,0 +1,21 @@
+import assert from 'node:assert/strict';import {createRequire} from 'node:module';import {writeFile} from 'node:fs/promises';
+const require=createRequire(import.meta.url),{chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_EXECUTABLE});
+const checks=[];
+try{
+const page=await browser.newPage({viewport:{width:1280,height:800}});let errors=[];page.on('pageerror',e=>errors.push(e.message));
+await page.addInitScript(()=>{localStorage.setItem('mokune.settings',JSON.stringify({autoSave:false,rememberPosition:true}));window.messages=[];window.webkit={messageHandlers:{mokune:{postMessage:m=>window.messages.push(m)}}};});
+const url='http://127.0.0.1:4173/dist/web/';await page.goto(url);await page.waitForFunction(()=>window.mokune);
+const raw='\ufeff# 会话\r\n\r\n'+Array.from({length:100},(_,i)=>`第 ${i} 行原文  \r\n`).join('');
+const payload={type:'load',tabID:'draft',raw,name:'草稿.md',recovered:true,savedRaw:'磁盘版本',hasPath:true,documentKey:'/demo/草稿.md',position:{anchor:320,head:300,scroll:700,scrollLeft:0,sourceMode:true,reading:false}};
+await page.evaluate(p=>window.mokune.receive(p),payload);await page.waitForTimeout(250);
+let snapshot=await page.evaluate(()=>window.mokune.snapshot());assert.equal(snapshot.raw,raw);assert.equal(snapshot.sourceMode,true);assert.deepEqual(snapshot.selection.ranges,[{anchor:320,head:300}]);
+assert.ok(Math.abs(await page.locator('.cm-scroller').evaluate(e=>e.scrollTop)-700)<3);checks.push('restore dirty BOM/CRLF source, reversed selection, source mode and scroll');
+await page.waitForTimeout(850);let sync=await page.evaluate(()=>window.messages.filter(m=>m.command==='draft').at(-1));assert.equal(sync.raw,raw);assert.equal(sync.position.scroll,700);checks.push('recovered draft remains dirty and persists full reading position');
+await page.keyboard.insertText('中文');let edited=await page.evaluate(()=>window.mokune.snapshot());assert.notEqual(edited.raw,raw);await page.evaluate(()=>window.mokune.receive({type:'action',action:'undo'}));assert.equal((await page.evaluate(()=>window.mokune.snapshot())).raw,raw);checks.push('Chinese insertion after restore has independent undo');
+await page.keyboard.press('ArrowRight');await page.locator('.cm-content').dispatchEvent('compositionstart');await page.evaluate(()=>{window.messages=[];document.querySelector('.cm-scroller').scrollTop=900});await page.waitForTimeout(500);assert.equal(await page.evaluate(()=>window.messages.filter(m=>['sessionPosition','draft'].includes(m.command)).length),0);await page.locator('.cm-content').dispatchEvent('compositionend');await page.waitForTimeout(150);checks.push('composition freezes session position and draft writes');
+await page.evaluate(()=>window.mokune.receive({type:'action',action:'prepareQuit'}));const stash=await page.evaluate(()=>window.messages.filter(m=>m.command==='syncTab').at(-1));assert.equal(stash.raw,raw);assert.ok(stash.position);checks.push('quit flush includes exact source and current reading position');
+await page.reload();await page.waitForFunction(()=>window.mokune);await page.evaluate(p=>window.mokune.receive({...p,raw:'',savedRaw:'被删除的正文',position:{anchor:0,head:0,scroll:0}}),payload);await page.waitForTimeout(900);assert.equal(await page.evaluate(()=>window.messages.filter(m=>m.command==='draft').at(-1)?.raw),'');assert.equal(await page.evaluate(()=>window.messages.filter(m=>m.command==='clean').length),0);checks.push('empty unsaved deletion is never mistaken for a clean restored document');
+await page.evaluate(()=>{window.__originalRAF=window.requestAnimationFrame;window.requestAnimationFrame=()=>0;});await page.evaluate(p=>window.mokune.receive({...p,replace:true}),payload);await page.waitForTimeout(500);assert.ok(Math.abs(await page.locator('.cm-scroller').evaluate(e=>e.scrollTop)-700)<3);await page.evaluate(()=>window.requestAnimationFrame=window.__originalRAF);checks.push('occluded WebKit animation-frame suspension has timed reading-position fallback');
+assert.deepEqual(errors,[]);await writeFile('output/session-browser-checks.json',JSON.stringify({checks,errors},null,2));console.log('Session browser: '+checks.length+' passed');
+}finally{await browser.close();}

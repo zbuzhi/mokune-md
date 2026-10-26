@@ -1,0 +1,201 @@
+[
+  {
+    "action": "bold",
+    "title": "加粗",
+    "binding": "Mod-b",
+    "key": "b",
+    "modifiers": [
+      "command"
+    ]
+  },
+  {
+    "action": "italic",
+    "title": "斜体",
+    "binding": "Mod-i",
+    "key": "i",
+    "modifiers": [
+      "command"
+    ]
+  },
+  {
+    "action": "inlineCode",
+    "title": "行内代码",
+    "binding": "Mod-e",
+    "key": "e",
+    "modifiers": [
+      "command"
+    ]
+  },
+  {
+    "action": "strike",
+    "title": "删除线",
+    "binding": "Mod-Shift-x",
+    "key": "x",
+    "modifiers": [
+      "command",
+      "shift"
+    ]
+  },
+  {
+    "action": "link",
+    "title": "插入链接",
+    "binding": "Mod-k",
+    "key": "k",
+    "modifiers": [
+      "command"
+    ]
+  },
+  {
+    "action": "image",
+    "title": "插入图片标记",
+    "binding": "Mod-Shift-i",
+    "key": "i",
+    "modifiers": [
+      "command",
+      "shift"
+    ]
+  },
+  {
+    "action": "codeBlock",
+    "title": "代码块",
+    "binding": "Mod-Shift-k",
+    "key": "k",
+    "modifiers": [
+      "command",
+      "shift"
+    ]
+  },
+  {
+    "action": "table",
+    "title": "插入表格",
+    "binding": "Mod-Alt-t",
+    "key": "t",
+    "modifiers": [
+      "command",
+      "option"
+    ]
+  },
+  {
+    "action": "footnote",
+    "title": "插入脚注",
+    "binding": "Mod-Alt-n",
+    "key": "n",
+    "modifiers": [
+      "command",
+      "option"
+    ]
+  },
+  {
+    "action": "horizontalRule",
+    "title": "插入分隔线",
+    "binding": "Mod-Alt-.",
+    "key": ".",
+    "modifiers": [
+      "command",
+      "option"
+    ]
+  },
+  {
+    "action": "heading1",
+    "title": "一级标题",
+    "binding": "Mod-1",
+    "key": "1",
+    "modifiers": [
+      "command"
+    ]
+  },
+  {
+    "action": "heading2",
+    "title": "二级标题",
+    "binding": "Mod-2",
+    "key": "2",
+    "modifiers": [
+      "command"
+    ]
+  },
+  {
+    "action": "heading3",
+    "title": "三级标题",
+    "binding": "Mod-3",
+    "key": "3",
+    "modifiers": [
+      "command"
+    ]
+  },
+  {
+    "action": "heading4",
+    "title": "四级标题",
+    "binding": "Mod-4",
+    "key": "4",
+    "modifiers": [
+      "command"
+    ]
+  },
+  {
+    "action": "heading5",
+    "title": "五级标题",
+    "binding": "Mod-5",
+    "key": "5",
+    "modifiers": [
+      "command"
+    ]
+  },
+  {
+    "action": "heading6",
+    "title": "六级标题",
+    "binding": "Mod-6",
+    "key": "6",
+    "modifiers": [
+      "command"
+    ]
+  },
+  {
+    "action": "paragraph",
+    "title": "正文",
+    "binding": "Mod-0",
+    "key": "0",
+    "modifiers": [
+      "command"
+    ]
+  },
+  {
+    "action": "bulletList",
+    "title": "无序列表",
+    "binding": "Mod-Alt-u",
+    "key": "u",
+    "modifiers": [
+      "command",
+      "option"
+    ]
+  },
+  {
+    "action": "orderedList",
+    "title": "有序列表",
+    "binding": "Mod-Alt-o",
+    "key": "o",
+    "modifiers": [
+      "command",
+      "option"
+    ]
+  },
+  {
+    "action": "taskList",
+    "title": "任务列表",
+    "binding": "Mod-Alt-x",
+    "key": "x",
+    "modifiers": [
+      "command",
+      "option"
+    ]
+  },
+  {
+    "action": "quote",
+    "title": "引用",
+    "binding": "Mod-Shift-.",
+    "key": ">",
+    "modifiers": [
+      "command",
+      "shift"
+    ]
+  }
+]

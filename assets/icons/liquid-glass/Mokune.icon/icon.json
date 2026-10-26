@@ -1,0 +1,37 @@
+{
+  "features": [
+    "refractivity"
+  ],
+  "fill": {
+    "automatic-gradient": "extended-srgb:0.10588,0.11765,0.12549,1.00000"
+  },
+  "groups": [
+    {
+      "layers": [
+        {
+          "image-name": "md-mark.svg",
+          "name": "md-mark"
+        }
+      ],
+      "refractivity": {
+        "depth": 0,
+        "enabled": true,
+        "strength": 0.18
+      },
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.18
+      },
+      "translucency": {
+        "enabled": true,
+        "value": 0.12
+      },
+      "name": "MD Glass"
+    }
+  ],
+  "supported-platforms": {
+    "squares": [
+      "macOS"
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+name: Local-equivalent checks (no publishing)
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  web-and-licenses:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version-file: .node-version
+          package-manager-cache: false
+      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5
+        with:
+          run_install: false
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run build:web && node scripts/third-party.mjs && node scripts/audit-bundle-licenses.mjs
+      - run: pnpm test && node scripts/verify-update-feed.mjs
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: bash scripts/test-release-smoke.sh
+      - run: node scripts/release-gate.mjs
+      - uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5
+        if: always()
+        with:
+          name: engineering-reports-no-binaries
+          retention-days: 7
+          path: |
+            output/license-audit.json
+            output/release-readiness.json
+            legal/sbom.cdx.json
+  mac-build:
+    runs-on: macos-26
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version-file: .node-version
+          package-manager-cache: false
+      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5
+        with:
+          run_install: false
+      - run: pnpm install --frozen-lockfile
+      - name: Compile both architectures (CI-only static icon, ad-hoc)
+        run: MOKUNE_ARCH=universal MOKUNE_ICON_STYLE=legacy bash scripts/build.sh
+      - run: pnpm test && bash scripts/test-native.sh && bash scripts/test-webkit-interaction.sh && bash scripts/test-update-exit.sh
+      # No binary upload: EPL source review, rights, branding, signing and notarization remain gated.

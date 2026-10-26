@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: mokune-image: https:; font-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Mokune MD</title><link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="app">
+  <header class="toolbar">
+    <button id="sidebar-toggle" class="icon-button" aria-label="切换侧栏" title="切换侧栏 · ⌘⇧B"></button>
+    <div class="navigation-buttons"><button id="navigate-back" class="icon-button" aria-label="返回链接位置" title="返回 · ⌘⌥←" disabled>‹</button><button id="navigate-forward" class="icon-button" aria-label="前进链接位置" title="前进 · ⌘⌥→" disabled>›</button></div><div class="breadcrumb"><span id="folder-label">本地文稿</span><span class="crumb-separator">›</span><strong id="filename">未命名.md</strong></div>
+    <div class="spacer"></div>
+    <div class="mode-switch" role="group" aria-label="编辑模式"><button id="live-mode" class="selected" aria-pressed="true">即时</button><button id="source-mode" title="切换源码 / 即时预览 · ⌘/" aria-pressed="false">源码</button></div>
+    <button id="reading-toggle" aria-label="只读阅读模式" aria-pressed="false" title="只读阅读模式 · ⌘⇧R">阅读</button>
+    <button id="commands-toggle" class="icon-button" aria-label="命令面板" title="命令面板 · ⌘⇧P">⌘</button>
+    <button id="appearance-toggle" class="icon-button" aria-label="外观与主题" title="外观与主题"></button>
+    <button id="focus-toggle" class="icon-button" aria-label="专注模式" title="专注模式 · ⌘⇧F"></button>
+  </header>
+  <div id="notice" class="notice" role="status" hidden><span id="notice-text"></span><div class="spacer"></div><button id="compare-file">比较版本</button><button id="reload-file">载入磁盘版本</button><button id="save-copy">另存我的版本</button><button id="dismiss-notice" aria-label="关闭提示">×</button></div>
+  <div class="workspace">
+    <aside id="sidebar" class="sidebar">
+      <div class="files-header"><div><h2>文件</h2><p>本地 Markdown</p></div><button class="icon-button" data-open-folder aria-label="打开文件夹" title="打开文件夹 · ⌘⇧O"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h6l2 2h10v11H3zM3 7V4h6l2 3h7M12 12v5m-2.5-2.5h5"/></svg></button></div>
+      <section id="current-file-section"><div class="sidebar-label">当前文稿</div><button id="current-document" class="file-item current">未命名.md</button></section>
+      <div class="folder-caption"><span class="sidebar-label">文件夹</span><div class="tree-tools"><button data-tree-create="createFile" class="icon-button" aria-label="在目录中新建文稿" title="新建文稿"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6zM14 3v5h4M12 12v6m-3-3h6"/></svg></button><button data-tree-create="createFolder" class="icon-button" aria-label="新建文件夹" title="新建文件夹"><svg viewBox="0 0 24 24"><path d="M3 7h6l2 2h10v11H3zM12 12v5m-2.5-2.5h5"/></svg></button></div><button id="close-folder" class="icon-button" aria-label="关闭文件夹" title="关闭文件夹，保留当前文稿" hidden>×</button></div>
+      <div class="files-scroll"><ul id="file-tree" role="tree" aria-label="文件目录树" hidden></ul><div id="folder-empty" class="folder-empty"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 15h13l4 4h17v21H7zM7 15V9h13l4 5h12v5"/></svg><h3>从文件夹开始</h3><p>文件与子文件夹，按层级展开。</p><button data-open-folder>打开文件夹 <kbd>⌘⇧O</kbd></button></div></div>
+      <p id="tree-status" role="status"></p><div class="files-footer"><button id="new-file">＋ 新建文稿 <kbd>⌘N</kbd></button><button id="open-file">打开文稿 <kbd>⌘O</kbd></button></div>
+    </aside>
+    <main id="editor" aria-label="Markdown 文稿"><aside id="floating-outline" class="floating-outline" data-side="right" aria-label="本篇大纲" hidden><button id="outline-mini" class="outline-mini" aria-label="展开本篇大纲" aria-controls="outline-panel" aria-expanded="false"><span class="mini-caption">大纲<span id="outline-mini-count">00</span></span><span id="outline-mini-rows"></span></button><section id="outline-panel" class="outline-panel" aria-label="完整大纲" aria-hidden="true" inert><header class="floating-outline-header"><div><h2>本篇大纲</h2><span id="outline-count">0 个标题</span></div><button id="outline-pin" class="icon-button" aria-label="固定展开" aria-pressed="false" title="固定展开"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 3 6 0-1 6 4 4H6l4-4zM12 13v8"/></svg></button><button id="outline-close" class="icon-button" aria-label="收起大纲" title="收起大纲">×</button></header><nav id="outline" aria-label="文档大纲"></nav><footer>点击标题，回到思路所在</footer></section></aside></main>
+    <aside id="appearance" class="appearance" hidden aria-label="外观设置">
+      <div class="appearance-header"><div><h2>外观</h2><p>找到适合此刻的纸面与光线。</p></div><button id="appearance-close" class="icon-button" aria-label="关闭外观">×</button></div>
+      <div class="theme-library-actions"><button id="import-theme" title="导入 .mokune-theme.json，可先导出当前主题作为模板">＋ 导入主题</button><button id="export-theme">导出当前</button><button id="remove-theme" hidden>移除</button></div><p id="theme-status" role="status"></p><a id="theme-source" class="theme-source" href="#"></a><div class="appearance-scroll"><div class="sidebar-label">社区精选 · 开源适配</div><div id="community-themes" class="theme-grid"></div><section id="custom-theme-section" hidden><div class="sidebar-label code-label">我的主题</div><div id="custom-themes" class="theme-grid"></div></section><div class="sidebar-label code-label">写作主题</div><div id="writing-themes" class="theme-grid"></div><div class="sidebar-label code-label">程序员主题</div><div id="developer-themes" class="theme-grid"></div></div>
+      <div class="appearance-settings"><label>正文字号 <select id="font-size" aria-label="正文字号"><option value="15">15 px</option><option value="17" selected>17 px</option><option value="19">19 px</option><option value="21">21 px</option></select></label><label>正文宽度 <select id="line-width" aria-label="正文宽度"><option value="640">紧凑 · 640</option><option value="720" selected>舒适 · 720</option><option value="880">宽阔 · 880</option><option value="full">铺满 · 少量留白</option></select></label><label>跟随系统外观 <input id="follow-system" type="checkbox"></label><div class="outline-setting"><span>悬浮大纲</span><div class="outline-position" role="group" aria-label="悬浮大纲位置"><button data-outline-position="left" aria-pressed="false">左侧</button><button data-outline-position="right" aria-pressed="true">右侧</button><button data-outline-position="off" aria-pressed="false">隐藏</button></div></div><p>移入页边展开 · 可固定 · 本地记住位置</p></div>
+    </aside>
+  </div>
+  <footer class="statusbar"><span id="save-status" role="status">未保存</span><span id="export-status" role="status"></span><span id="preview-label"></span><div class="spacer"></div><button id="input-source" aria-label="选择输入法" title="选择已安装的输入法"></button><button id="word-count" title="文稿与选区统计" aria-label="文稿与选区统计">0 字</button><span id="encoding">UTF-8</span><span id="eol">LF</span><button id="position" title="跳转行列 · ⌘L" aria-label="跳转行列">1:1</button><span>Markdown</span></footer>
+</div>
+<input id="theme-file" type="file" accept=".json" hidden>
+<input id="browser-file" type="file" accept=".md,.markdown,.txt" hidden>
+<script defer src="editor.js"></script>
+</body></html>

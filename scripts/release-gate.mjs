@@ -1,0 +1,10 @@
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {sourceReviewHash} from './lib/source-review.mjs';
+import {sourceManifest} from './lib/source-package.mjs';
+import {releaseReadiness} from './lib/release-readiness.mjs';
+import {binaryEvidence} from './lib/binary-evidence.mjs';
+import {digest} from './lib/dependency-inventory.mjs';
+const state=JSON.parse(await readFile('legal/release-state.json','utf8')),audit=JSON.parse(await readFile('output/license-audit.json','utf8'));if(!audit.engineeringChecksPassed)throw Error('License engineering audit has not passed');
+const at=process.argv.indexOf('--app'),evidence=binaryEvidence(at>=0?process.argv[at+1]:null),pkg=JSON.parse(await readFile('package.json','utf8')),build=JSON.parse(await readFile('app.build.json','utf8'));if(evidence.provided&&(evidence.version!==pkg.version||evidence.build!==String(build.build)||evidence.bundleIdentifier!==build.bundleIdentifier))throw Error('App identity/version/build differs from reviewed source');
+const manifest=await sourceManifest(),hash=digest(JSON.stringify(manifest)),reviewHash=sourceReviewHash(manifest,state),readiness=releaseReadiness(state,audit,reviewHash,evidence),report={mode:'local-preparation-only',published:false,engineeringChecksPassed:true,sourceManifestSHA256:hash,sourceReviewSHA256:reviewHash,sourceFiles:manifest.files.length,binaryEvidence:evidence,...readiness};await mkdir('output',{recursive:true});await writeFile('output/source-manifest.json',JSON.stringify(manifest,null,2)+'\n');await writeFile('output/release-readiness.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));
+if(process.argv.includes('--public-source')&&!readiness.sourceReady||process.argv.includes('--public-binary')&&!readiness.publicBinaryReady)process.exitCode=1;

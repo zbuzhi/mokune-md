@@ -1,0 +1,14 @@
+* text=auto eol=lf
+# Preserve approved binary/provenance bytes and exact upstream license/CSS bytes.
+assets/** -text
+docs/screenshots/** -text
+vendor/themes/** -text
+THIRD_PARTY_NOTICES.md -text
+# BOM and mixed-line-ending fixtures must survive Git checkout unchanged.
+tests/fixtures/** -text
+*.png -text
+*.icns -text
+*.pdf -text
+*.woff2 -text
+# Sparkle signs the exact feed bytes; Git must not normalize them.
+updates/** -text

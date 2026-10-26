@@ -1,0 +1,42 @@
+import assert from 'node:assert/strict';
+import {createRequire} from 'node:module';
+import {writeFile} from 'node:fs/promises';
+const require=createRequire(import.meta.url),{chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+const browser=await chromium.launch({headless:true,...(process.env.CHROME_EXECUTABLE?{executablePath:process.env.CHROME_EXECUTABLE}:{})});
+try {
+ const page=await browser.newPage({viewport:{width:1440,height:980}}),errors=[],checks=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.addInitScript(()=>{
+  window.__commands=[];window.__dirs={'':[{id:'notes',name:'notes',kind:'folder'},{id:'archive',name:'archive',kind:'folder'},{id:'draft.md',name:'draft.md',kind:'file'}],notes:[],archive:[]};window.__current='draft.md';
+  window.__refresh=()=>window.mokune.receive({type:'workspace',token:'workspace',name:'Mokune Notes',currentPath:window.__current,children:window.__dirs[''],invalidate:true});
+  const emit=p=>window.mokune.receive(p),parent=p=>p.split('/').slice(0,-1).join('/');
+  window.webkit={messageHandlers:{mokune:{postMessage:m=>{window.__commands.push(m);setTimeout(()=>{
+   if(m.command==='readDirectory')emit({type:'directoryChildren',id:m.id,path:m.path,children:window.__dirs[m.path]||[]});
+   if(m.command==='workspaceMutation'){
+    if(m.name==='duplicate.md'){emit({type:'workspaceMutationResult',id:m.id,error:'同名项目已存在，请换一个名字。'});return;}
+    const operation=m.operation,oldPath=m.path||'',path=m.operation.startsWith('create')?[m.parent,m.name].filter(Boolean).join('/'):[operation==='rename'?parent(oldPath):m.parent,operation==='rename'?m.name:oldPath.split('/').at(-1)].filter(Boolean).join('/'),folder=operation==='createFolder';
+    if(operation.startsWith('create')){(window.__dirs[m.parent]||=[]).push({id:path,name:m.name,kind:folder?'folder':'file'});if(folder)window.__dirs[path]=[];}
+    else {const list=window.__dirs[parent(oldPath)],node=list.find(x=>x.id===oldPath);list.splice(list.indexOf(node),1);(window.__dirs[parent(path)]||=[]).push({...node,id:path,name:path.split('/').at(-1)});if(window.__current===oldPath){window.__current=path;emit({type:'relocated',name:path.split('/').at(-1),folder:parent(path),imageBase:''});}}
+    emit({type:'workspaceMutationResult',id:m.id,operation,oldPath,path,parent:parent(path)});window.__refresh();
+   }
+  },25);}}}};
+ });
+ await page.goto('http://127.0.0.1:4173/dist/web/');await page.waitForFunction(()=>window.mokune);
+ const raw='\ufeff# 流动的页边\r\n\r\n## 今天的安排\n\n保留原文  \r\n\n### 细节\n\n## 明天\n';
+ await page.evaluate(raw=>{window.mokune.receive({type:'load',raw,name:'draft.md',hasPath:true});window.__refresh();},raw);
+ const locator=path=>page.locator('.tree-item[data-path="'+path+'"]');
+ await locator('draft.md').waitFor();
+ await page.locator('.cm-content').click();await page.keyboard.press('End');await page.keyboard.type(' edited');const before=await page.evaluate(()=>window.mokune.snapshot());
+ await locator('draft.md').click({button:'right'});await page.getByRole('menuitem',{name:'重命名',exact:true}).click();await page.locator('.tree-name-input').fill('写作.md');await page.locator('.tree-name-input').press('Enter');await locator('写作.md').waitFor();
+ const after=await page.evaluate(()=>window.mokune.snapshot());assert.equal(after.raw,before.raw);assert.deepEqual(after.selection,before.selection);assert.equal(after.revision,before.revision);assert.equal(await page.locator('#filename').textContent(),'写作.md');assert.ok(await page.evaluate(()=>window.__commands.some(m=>m.command==='draft'&&m.raw.includes('edited'))));checks.push('renaming an unsaved document preserves raw bytes, selection, revision and recovery draft');
+ await page.locator('.cm-content').click();await page.keyboard.press('Meta+z');assert.equal((await page.evaluate(()=>window.mokune.snapshot())).raw,raw);checks.push('undo history survives a path-only relocation');
+ await locator('notes').click();await page.locator('[data-tree-create=createFolder]').click();await page.locator('.tree-name-input').fill('中文资料');await page.locator('.tree-name-input').press('Enter');await locator('notes/中文资料').waitFor();checks.push('new folders are created inside the selected folder and revealed');
+ await locator('notes/中文资料').click({button:'right'});await page.getByRole('menuitem',{name:'新建文稿',exact:true}).click();await page.locator('.tree-name-input').fill('新札记.md');await page.locator('.tree-name-input').press('Enter');await locator('notes/中文资料/新札记.md').waitFor();checks.push('inline creation uses the intended nested parent and Unicode names');
+ const transfer=await page.evaluateHandle(()=>new DataTransfer());await locator('写作.md').dispatchEvent('dragstart',{dataTransfer:transfer});await page.evaluate(()=>{window.__dirs.notes.push({id:'notes/during-drag.md',name:'during-drag.md',kind:'file'});window.__refresh();});await page.waitForTimeout(70);assert.equal(await locator('notes/during-drag.md').count(),0);await locator('写作.md').dispatchEvent('dragend',{dataTransfer:transfer});await locator('notes/during-drag.md').waitFor();checks.push('filesystem refresh waits until a drag finishes, keeping the dragged DOM stable');
+ await locator('写作.md').dragTo(locator('archive'));await locator('archive/写作.md').waitFor();assert.equal((await page.evaluate(()=>window.mokune.snapshot())).raw,raw);checks.push('dragging a document to a folder sends a scoped move and keeps its buffer');
+ await locator('archive/写作.md').focus();await page.keyboard.press('F2');await page.locator('.tree-name-input').fill('duplicate.md');await page.locator('.tree-name-input').press('Enter');await page.waitForFunction(()=>document.querySelector('#tree-status').textContent.includes('同名'));assert.equal(await page.locator('.tree-name-input').isEnabled(),true);await page.locator('.tree-name-input').press('Escape');assert.equal(await locator('archive/写作.md').count(),1);checks.push('name collisions retain the original item and let the user correct or cancel');
+ await locator('notes').click({button:'right'});await page.getByRole('menuitem',{name:'新建文稿',exact:true}).click();await page.locator('.tree-name-input').fill('正在命名.md');await page.evaluate(()=>{window.__dirs.notes.push({id:'notes/external.md',name:'external.md',kind:'file'});window.__refresh();});await page.waitForTimeout(70);assert.equal(await page.locator('.tree-name-input').inputValue(),'正在命名.md');await page.locator('.tree-name-input').press('Escape');await locator('notes/external.md').waitFor();checks.push('external refresh waits for inline naming and applies after cancellation');
+ await page.locator('.cm-content').click();await page.evaluate(()=>document.querySelector('.cm-content').dispatchEvent(new CompositionEvent('compositionstart',{bubbles:true})));const composing=await page.evaluate(()=>window.mokune.snapshot());await page.evaluate(()=>{window.__dirs.notes.push({id:'notes/ime.md',name:'ime.md',kind:'file'});window.__refresh();});await page.waitForTimeout(70);assert.equal(await locator('notes/ime.md').count(),0);await page.evaluate(()=>document.querySelector('.cm-content').dispatchEvent(new CompositionEvent('compositionend',{bubbles:true})));await locator('notes/ime.md').waitFor();assert.deepEqual((await page.evaluate(()=>window.mokune.snapshot())).selection,composing.selection);checks.push('filesystem refresh is deferred during Chinese composition without selection changes');
+ await page.locator('#outline-mini').hover();await page.waitForFunction(()=>getComputedStyle(document.getElementById('outline-panel')).opacity==='1');await page.screenshot({path:'docs/design/implementation/16-navigation-refined.png'});await page.mouse.move(600,100);await page.waitForTimeout(550);await page.locator('#outline-mini').hover();await page.waitForFunction(()=>getComputedStyle(document.getElementById('outline-panel')).opacity==='1');checks.push('the lighter outline opens fully and reopens across repeated hover transitions');
+ await page.locator('#outline-close').click();await locator('notes').click({button:'right'});await page.getByRole('menuitem',{name:'新建文稿',exact:true}).click();await page.locator('.tree-name-input').fill('小想法.md');await page.screenshot({path:'docs/design/implementation/17-tree-inline-create.png'});await page.locator('.tree-name-input').press('Escape');
+ assert.deepEqual(errors,[]);checks.push('no runtime errors');await writeFile('docs/WORKSPACE-TEST-RESULTS.json',JSON.stringify({checks,errors},null,2));console.log('Workspace browser checks passed: '+checks.length);
+}finally{await browser.close();}
