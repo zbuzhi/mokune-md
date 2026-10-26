@@ -7,12 +7,16 @@
   "archiveFile": "elkjs-a8304cf79fde75bc2ab1a89d28320f53f8637436.tar.gz",
   "archiveSHA256": "850418c89dd35dbd94ea0100a7becbc09d320c153fda4c4ea4a88c67e12121a9",
   "repository": "https://github.com/kieler/elkjs/tree/a8304cf79fde75bc2ab1a89d28320f53f8637436",
-  "preferredSourceStatus": "elkjs-wrapper-and-build-scripts-archived; upstream-ELK-Java-revision-unverified",
-  "elkJavaRevision": null,
-  "verifiedDate": "2026-10-26",
+  "preferredSourceStatus": "reviewed-java-source-and-build-inputs",
+  "elkJavaRevision": "62d5909f96fad541bc101ad52dabaece6b7eab7e",
+  "verifiedDate": "2026-10-27",
   "bundledFile": {
     "path": "lib/elk.bundled.js",
     "gitBlobSHA1": "5e77ca50087cf50f52eeb732490fbe33d9eaf8c8",
     "sha256": "b0745abd7f23cd91690a1587e377edbe19fd7233c783300290936720546216d4"
-  }
+  },
+  "elkJavaPatchCommit": "7ca51784e42a24201f29bc13e458728b6fc61cdc",
+  "upstreamReleaseURL": "https://github.com/kieler/elkjs/releases/tag/0.9.3",
+  "javaBuildInputsNoticeSHA256": "8094bef8ff6530543082f9305a82f7d17f8a6886e1e3385d5280be4f492ed42a",
+  "javaComponentsSHA256": "59512f0d6eb32e7952773aa815197ed431bd8a08a9a5dbb821b99d2d1f3939cb"
 }

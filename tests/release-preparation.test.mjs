@@ -38,5 +38,5 @@ test('review stamp excludes only itself, so acceptance can converge and still bi
 });
 test('a guessed ELK revision alone never clears preferred-source review',async()=>{
  const {elkSourceReviewRecorded}=await import('../scripts/lib/elk-source-review.mjs'),source={elkJavaRevision:'a'.repeat(40)};assert.equal(elkSourceReviewRecorded(source,null),false);
- const reviewed={...source,preferredSourceStatus:'reviewed-java-source-and-build-inputs',javaBuildInputsNoticeSHA256:'b'.repeat(64)};assert.equal(elkSourceReviewRecorded(reviewed,'c'.repeat(64)),false);assert.equal(elkSourceReviewRecorded(reviewed,'b'.repeat(64)),true);
+ const reviewed={...source,version:'0.9.3',elkJavaPatchCommit:'b'.repeat(40),upstreamReleaseURL:'https://github.com/kieler/elkjs/releases/tag/0.9.3',javaComponentsSHA256:'c'.repeat(64),preferredSourceStatus:'reviewed-java-source-and-build-inputs',javaBuildInputsNoticeSHA256:'b'.repeat(64)};assert.equal(elkSourceReviewRecorded(reviewed,'c'.repeat(64)),false);assert.equal(elkSourceReviewRecorded(reviewed,'b'.repeat(64)),false);assert.equal(elkSourceReviewRecorded(reviewed,'b'.repeat(64),'c'.repeat(64)),true);assert.equal(elkSourceReviewRecorded({...reviewed,elkJavaPatchCommit:null},'b'.repeat(64),'c'.repeat(64)),false);
 });

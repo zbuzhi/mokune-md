@@ -4,6 +4,7 @@ assets/** -text
 docs/screenshots/** -text
 vendor/themes/** -text
 THIRD_PARTY_NOTICES.md -text
+licenses/** -text
 # BOM and mixed-line-ending fixtures must survive Git checkout unchanged.
 tests/fixtures/** -text
 *.png -text

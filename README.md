@@ -37,7 +37,13 @@
 
 ## 开始使用
 
-**0.1.0 暂时只提供源码，安装包还没发布。**
+**0.1.0 未公证预览版**
+
+[下载 DMG](https://github.com/zbuzhi/mokune-md/releases/download/v0.1.0/mokune-md-0.1.0-macos-universal-UNNOTARIZED-PREVIEW.dmg) · [下载 ZIP](https://github.com/zbuzhi/mokune-md/releases/download/v0.1.0/mokune-md-0.1.0-macos-universal-UNNOTARIZED-PREVIEW.zip) · [校验文件](https://github.com/zbuzhi/mokune-md/releases/download/v0.1.0/SHA256SUMS.txt)
+
+同一份安装包支持 Apple Silicon 和 Intel。本版尚未经过 Apple 公证，首次打开可能被 macOS 拦截。
+
+想从源码编译的话：
 
 本地构建需要 macOS 13.3+、Xcode、Node.js 24 和 pnpm 11.25.0。
 
@@ -51,7 +57,7 @@ open "dist/Mokune MD.app"
 
 只装了 Command Line Tools 的话，可以用 `MOKUNE_ICON_STYLE=legacy pnpm build` 构建静态图标版。更多构建选项见 [构建指南](docs/BUILDING.md)。本地构建使用临时签名，尚未经过 Apple 公证。
 
-应用已经接入在线更新。首个安装包发布后，手动安装一次，后续就能从应用菜单检查更新；目前更新源里没有安装包。
+应用已接入在线更新。第一次手动安装后，后续可以从应用菜单检查更新；自动检查默认关闭。
 
 ## 几个常用操作
 

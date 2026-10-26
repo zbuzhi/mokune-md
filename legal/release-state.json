@@ -8,9 +8,10 @@
   "privateSecurityContact": "https://github.com/zbuzhi/mokune-md/security/advisories/new",
   "longTermBundleIdentityConfirmed": false,
   "reviewedSourceManifestSHA256": null,
-  "note": "The user explicitly authorized MIT source publication on GitHub and separately authorized creating the update key in the macOS Keychain. Only a source preview is authorized; the stricter formal release review remains incomplete. Collective copyright attribution does not prove all individual/third-party rights. No private signing key is stored in source.",
+  "note": "User authorized public 0.1.0 unnotarized preview packages after third-party review and explicitly authorized the update key in the local macOS Keychain. No paid Apple membership or Developer ID exists. Formal notarized-release, brand and comprehensive ownership reviews remain distinct and are not marked complete.",
   "privateSecurityContactVerified": true,
   "sourcePreviewPublicationAuthorized": true,
-  "binaryPublicationAuthorized": false,
-  "updateKeyCreationAuthorized": true
+  "binaryPublicationAuthorized": true,
+  "updateKeyCreationAuthorized": true,
+  "unnotarizedPreviewPublicationAuthorized": true
 }
